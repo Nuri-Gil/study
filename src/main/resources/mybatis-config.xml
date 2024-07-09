@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 아래에 지정한 패키지의 이름을 생략하기 위한 설정
+    EX. org.zerock.ex00.domain.BoardVO 대신 BoardVO 로 줄여서 쓸 수 있도록 -->
+    <typeAliases>
+        <package name="org.zerock.ex00.domain"/>
+    </typeAliases>
+</configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Mapping 설정은 root-context 에서 mybatis property 추가할 것-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.ex00.mappers.BoardMapper">
+    <!-- 아래에서 실행하는 한 ROW 를 어떻게 처리할것인가 -> ResultType
+       mybatis-config.xml 의  TypeAliases 에서 패키지 설정을 했으므로 단순히 BoardVO 라고 쓸 수 있음 -->
+    <select id="getList" resultType="BoardVO">
+        select * from tbl_board where bno > 0 order by bno desc
+    </select>
+
+    <insert id="insert">
+        <selectKey order="AFTER" keyProperty="bno" resultType="long"> <!-- 이 안에 어떤 SQL 문이 들어갈 것인가 -->
+            <!-- MariaDB 에는 LastInsertId 가 있음 -> 방금전에 들어간 AutoIncrement 된 값이 나옴
+            order AFTER -> SQL 문 수행 이후, keyProperty -> 값을 어디에 세팅할 것인가 -->
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        <!-- SQL 문 안에 실제 내용물이 들어가는 부분은 # 으로 처리, 나머지는 GETTER
+        동작 시에 #{} 값이 ? 로 받게 되어 변수로 바뀜 -->
+        insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
+    </insert>
+
+    <select id="select" resultType="BoardVO">
+        select * from tbl_board where bno = #{bno}
+    </select>
+
+    <update id="update">
+        update tbl_board set title = #{title}, content = #{content}, updateDate = now() where bno = #{bno}
+    </update>
+</mapper>
