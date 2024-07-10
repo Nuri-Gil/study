@@ -5,12 +5,16 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!-- 컨트롤러가 어떤 방식으로 찾아갈 지 설정하는 Handler Mapping 설정, URI -->
+
+    <!-- VIEW Resolver -> VIEW 를 찾아갈 때 어떻게 찾아갈지 설정-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/WEB-INF/views/"/> <!-- 앞에 붙는것, 경로 -->
+        <property name="suffix" value=".jsp"/> <!-- 뒤에 붙는것, "." 과 확장자(jsp 등) -->
     </bean>
-
     <context:component-scan base-package="org.zerock.ex00.controller"/>
+    <!-- 이렇게 지정해야 이 패키지 안에 controller 가 스프링에 Bean 으로 등록됨 -->
 
+    <!-- MVC 설정을 위한 세팅 -->
     <mvc:annotation-driven/>
 </beans>
