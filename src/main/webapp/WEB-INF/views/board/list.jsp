@@ -53,19 +53,19 @@
                     <%-- <li class="page-item disabled"> disabled 없애도록 if 사용 --%>
                     <c:if test="${pageMaker.prev}">
                         <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            <a class="page-link" href="${pageMaker.startPage - 1}" tabindex="-1">Previous</a>
                         </li>
                     </c:if>
                     <%-- BoardController 모델에서 정의한 이름 pageMaker--%>
                     <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
                         <%-- cri 를 사용하고 있으므로 cri 가 가진 현재 페이지가 맞는 경우에만 'active' 출력 되도록 --%>
                         <li class="page-item ${cri.pageNum == num ? 'active' : ''}">
-                            <a class="page-link" href="#">${num}</a> <%--c:forEach 에서 나오는 var num 이 여기 들어감--%>
+                            <a class="page-link" href="${num}">${num}</a> <%--c:forEach 에서 나오는 var num 이 여기 들어감--%>
                         </li>
                     </c:forEach>
                     <c:if test="${pageMaker.next}">
                         <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
+                            <a class="page-link" href="${pageMaker.endPage + 1}">Next</a>
                         </li>
                     </c:if>
                 </ul>
@@ -116,6 +116,19 @@
         // console.log(`/board/read/\${bno}`)
         window.location = `/board/read/\${bno}` /* 백틱을 쓰면 문자열을 탬플릿처럼 사용 가능 */
     }, false)
+
+    // 문서의 쿼리 중 ".pagination" 클래스를 찾아 원래 존재하는것 바깥쪽에 "click" 이벤트를 걸고 event 를 파라미터로 받아 function 주기
+    document.querySelector(".pagination").addEventListener("click", (e) => {
+
+        e.preventDefault() // 이벤트에 걸린 기본동작 막기
+        const target = e.target // 이벤트의 target 확인
+        console.log(target)
+
+        const targetPage = target.getAttribute("href") // target 에 prev, 현재, next 의 참조값을 가져옴 -> 숫자 값이기 때문에 변수 처리(const)
+        console.log(targetPage)
+
+        window.location = `/board/list?pageNum=\${targetPage}`
+    });
 </script>
 
 <%@include file="../includes/end.jsp" %>

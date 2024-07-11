@@ -1221,7 +1221,7 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
     </schema>
     <schema id="509" parent="1" name="springdb">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-07-11.04:11:38</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-07-11.13:07:01</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="510" parent="1" name="springdbuser">
@@ -1232,7 +1232,7 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="512" parent="511" name="bno">
-      <AutoIncrement>1024</AutoIncrement>
+      <AutoIncrement>8192</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1255,13 +1255,11 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
     <column id="516" parent="511" name="regDate">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>current_timestamp()</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="517" parent="511" name="updateDate">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>current_timestamp()</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
     <index id="518" parent="511" name="PRIMARY">
