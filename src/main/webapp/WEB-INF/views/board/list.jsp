@@ -25,6 +25,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
+            ${pageMaker} <%-- 테스트용 --%>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
@@ -47,6 +48,28 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <div>
+                <ul class="pagination">
+                    <%-- <li class="page-item disabled"> disabled 없애도록 if 사용 --%>
+                    <c:if test="${pageMaker.prev}">
+                        <li class="page-item">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                    </c:if>
+                    <%-- BoardController 모델에서 정의한 이름 pageMaker--%>
+                    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+                        <%-- cri 를 사용하고 있으므로 cri 가 가진 현재 페이지가 맞는 경우에만 'active' 출력 되도록 --%>
+                        <li class="page-item ${cri.pageNum == num ? 'active' : ''}">
+                            <a class="page-link" href="#">${num}</a> <%--c:forEach 에서 나오는 var num 이 여기 들어감--%>
+                        </li>
+                    </c:forEach>
+                    <c:if test="${pageMaker.next}">
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -90,8 +113,8 @@
 
         console.log(bno);
 
-        console.log(`/board/read/\${bno}`)
-        window.location=`/board/read/\${bno}` /* 백틱을 쓰면 문자열을 탬플릿처럼 사용 가능 */
+        // console.log(`/board/read/\${bno}`)
+        window.location = `/board/read/\${bno}` /* 백틱을 쓰면 문자열을 탬플릿처럼 사용 가능 */
     }, false)
 </script>
 

@@ -21,38 +21,36 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Bno</span>
             </div>
-            <input type="text" class="form-control" value="<c:out value="${vo.bno}"/>"
-                   readonly> <%-- 조회를 위해 ReadOnly, 출력을 위해서는 c:out 사용--%>
+            <input type="text" class="form-control" value="<c:out value="${vo.bno}"/>" readonly> <%-- 조회를 위해 ReadOnly, 출력을 위해서는 c:out 사용--%>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Title</span>
             </div>
-            <input type="text" name="title" class="form-control" value="<c:out value="${vo.title}"/>">
+            <input type="text" name="title" class="form-control" value="<c:out value="${vo.title}"/>"readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Content</span>
             </div>
-            <input type="text" name="content" class="form-control" value="<c:out value="${vo.content}"/>">
+            <input type="text" name="content" class="form-control" value="<c:out value="${vo.content}"/>"readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Writer</span>
             </div>
-            <input type="text" name="writer" class="form-control" value="<c:out value="${vo.writer}"/>">
+            <input type="text" name="writer" class="form-control" value="<c:out value="${vo.writer}"/>"readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">RegDate</span>
             </div>
-            <input type="text" name="regDate" class="form-control" value="<c:out value="${vo.regDate}"/>">
+            <input type="text" name="regDate" class="form-control" value="<c:out value="${vo.regDate}"/>"readonly>
         </div>
         <div class="input-group input-group-lg">
-            <div> <%-- 버튼에는 스크립트를 통해 이벤트를 걸어줄 것임 --%>
-                <button type="submit" class="btn btn-info btnList">LIST</button>
-                <button type="submit" class="btn btn-warning btnModify">MODIFY</button>
-            </div>
+            <%-- 버튼에는 스크립트를 통해 이벤트를 걸어줄 것임 --%>
+            <button type="submit" class="btn btn-info btnList">LIST</button>
+            <button type="submit" class="btn btn-warning btnModify">MODIFY</button>
         </div>
     </div>
 </div>

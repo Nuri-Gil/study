@@ -4,12 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.ex00.domain.BoardVO;
+import org.zerock.ex00.domain.Criteria;
+import org.zerock.ex00.domain.PageDTO;
 import org.zerock.ex00.service.BoardService;
 
 import java.util.List;
@@ -22,6 +21,7 @@ public class BoardController {
     // 원래는 의존성 주입이 필요하지만 파라미터 수집이나 웹의 동작을 확인한 후에 해도 괜찮음
     private final BoardService boardService;
 
+/*
     // list -> 보드의 리스트, 경로 설정(url 같은거)을 직접 만드는 메서드에 할 수 있음
     @GetMapping("/list") // -> 이 경우에는 /board/list 의 경로가 됨
     // Model -> 데이터를 담아야 하는 카트
@@ -35,7 +35,31 @@ public class BoardController {
         model.addAttribute("list", list); // model 에 "list" 라는 이름표를 붙여서 list 데이터를 담음
         // API 서버 (데이터만 밀어주는 서버) 를 만들면 컨트롤러에서 처리 가능, JSP 쪽으로 간다면 JSP 화면 구성하면 됨
     }
+*/
 
+    // Criteria 를 파라미터로 받도록 list() 변경
+    @GetMapping("/list")
+    public void list(
+            @ModelAttribute("cri") Criteria criteria, // "cri" 라는 이름으로 자동적으로 Criteria 가 파라미터 수집 (pageNum, amount)
+            Model model // "cri" 라는 이름(명시적) 으로 Criteria 데이터를 담아서 Model 로 보냄
+    ) {
+        log.info("list.......................");
+
+        List<BoardVO> list = boardService.getList(criteria);
+        // Criteria 가 컨트롤러에서 수집되어 Service 에 전달하고 다시 Mapper 의 getPage() 호출
+
+        log.info(list);
+        log.info("리스트 출력");
+        log.info("리스트 출력");
+        log.info("리스트 출력");
+        log.info("리스트 출력");
+
+        model.addAttribute("list", list);
+
+        PageDTO pageDTO = new PageDTO(criteria, boardService.getTotal(criteria)); // 파라미터 cri, total 값
+
+        model.addAttribute("pageMaker", pageDTO);
+    }
 /*
     // HTTP GET 요청이 /read/{bno} 경로로 올 경우 이 메서드를 처리하도록 매핑
     @GetMapping("/read/{bno}") // bno 값을 QueryString 으로 받아 변수처럼 사용, @PathVariable 은 {} 로 묶을것
@@ -124,5 +148,39 @@ public class BoardController {
         // /board/list 스크립트에 const rno = bno 으로 들어가지만 새로고침하면 날아감!
 
         return "redirect:/board/list"; // 리다이렉트를 할 때는 무조건!!! 앞에 redirect: 붙이기
+    }
+
+    @PostMapping("/remove/{bno}")
+    public String remove(
+            @PathVariable(name = "bno") Long bno,
+            RedirectAttributes rttr // 삭제후 목록 페이지로 이동하고 모달창에 메세지를 넣기 위해서는 addFlashAttribute 가 필요함
+    ) {
+        BoardVO boardVO = new BoardVO();
+        boardVO.setBno(bno);
+        boardVO.setTitle("해당 글은 삭제되었습니다");
+        boardVO.setContent("해당 글은 삭제되었습니다");
+        // boardVO.setWriter("unknown"); // Writer 는 수정 불가이므로 지금은 없이 진행
+
+        log.info("boardVO : " + boardVO);
+
+        boardService.modify(boardVO); // remove 가 아니라 modify 를 호출 (soft-delete)
+
+        rttr.addFlashAttribute("result", boardVO.getBno());
+
+        return "redirect:/board/list";
+    }
+
+    @PostMapping("/modify/{bno}")
+    public String modify(
+            @PathVariable(name = "bno") Long bno,
+            BoardVO boardVO // 제목이나 내용이 변경되므로 수집해야 함
+    ) {
+        boardVO.setBno(bno); // @PathVariable 에 있는 번호를 다시 한번 세팅
+
+        log.info("boardVO : " + boardVO);
+
+        boardService.modify(boardVO);
+
+        return "redirect:/board/read/" + bno;
     }
 }

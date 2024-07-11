@@ -10,6 +10,15 @@
         select * from tbl_board where bno > 0 order by bno desc
     </select>
 
+    <select id="getPage" resultType="BoardVO">
+        select * from tbl_board where bno > 0 order by bno desc
+        limit #{skip}, #{amount} <!-- MyBatis 가 getter 를 읽어옴 & Lombok @Data 로 getAmount 처리 -->
+    </select>
+
+    <select id="getTotal" resultType="int">
+        select count(bno) from tbl_board <!-- 인덱스를 타기 위해?? -->
+    </select>
+
     <insert id="insert">
         <selectKey order="AFTER" keyProperty="bno" resultType="long"> <!-- 이 안에 어떤 SQL 문이 들어갈 것인가 -->
             <!-- MariaDB 에는 LastInsertId 가 있음 -> 방금전에 들어간 AutoIncrement 된 값이 나옴 (Long 타입으로 받아다 쓸 목적)
