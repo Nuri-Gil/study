@@ -21,31 +21,32 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Bno</span>
             </div>
-            <input type="text" class="form-control" value="<c:out value="${vo.bno}"/>" readonly> <%-- 조회를 위해 ReadOnly, 출력을 위해서는 c:out 사용--%>
+            <input type="text" class="form-control" value="<c:out value="${vo.bno}"/>"
+                   readonly> <%-- 조회를 위해 ReadOnly, 출력을 위해서는 c:out 사용--%>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Title</span>
             </div>
-            <input type="text" name="title" class="form-control" value="<c:out value="${vo.title}"/>"readonly>
+            <input type="text" name="title" class="form-control" value="<c:out value="${vo.title}"/>" readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Content</span>
             </div>
-            <input type="text" name="content" class="form-control" value="<c:out value="${vo.content}"/>"readonly>
+            <input type="text" name="content" class="form-control" value="<c:out value="${vo.content}"/>" readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">Writer</span>
             </div>
-            <input type="text" name="writer" class="form-control" value="<c:out value="${vo.writer}"/>"readonly>
+            <input type="text" name="writer" class="form-control" value="<c:out value="${vo.writer}"/>" readonly>
         </div>
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
                 <span class="input-group-text">RegDate</span>
             </div>
-            <input type="text" name="regDate" class="form-control" value="<c:out value="${vo.regDate}"/>"readonly>
+            <input type="text" name="regDate" class="form-control" value="<c:out value="${vo.regDate}"/>" readonly>
         </div>
         <div class="input-group input-group-lg">
             <%-- 버튼에는 스크립트를 통해 이벤트를 걸어줄 것임 --%>
@@ -55,16 +56,25 @@
     </div>
 </div>
 
+<form id="actionForm" method="get" action="/board/list">
+    <input type="hidden" name="pageNum" value="${cri.pageNum}">
+    <input type="hidden" name="amount" value="${cri.amount}">
+</form>
 
 <%@include file="../includes/footer.jsp" %>
 
-<script>
+<script> /* Criteria 처리하는 스크립트 추가 */
 
+    const actionForm = document.querySelector("#actionForm"); /* #actionForm 이라는 id 를 찾아 변수 선언*/
+    const bno = '${vo.bno}'
     document.querySelector(".btnList").addEventListener("click", (e) => {
-        window.location = "/board/list"
+        actionForm.setAttribute("action", "/board/list")
+        actionForm.submit()
     }, false); /*버블링 핸들러 false*/
+
     document.querySelector(".btnModify").addEventListener("click", (e) => {
-        window.location = "/board/modify/${vo.bno}"
+        actionForm.setAttribute("action", `/board/modify/\${bno}`)
+        actionForm.submit()
     }, false); /*버블링 핸들러 false*/
 
 </script>

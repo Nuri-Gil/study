@@ -61,7 +61,9 @@ public class BoardMapperTests {
     public void testPage() {
         Criteria criteria = new Criteria(); // 기본값은 1, 10
 
-        criteria.setPageNum(1);
+        criteria.setPageNum(2);
+        criteria.setTypes(new String[]{"T"});
+        criteria.setKeyword("n");
 
         List<BoardVO> list = boardMapper.getPage(criteria);
 

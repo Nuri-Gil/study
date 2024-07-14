@@ -44,6 +44,9 @@ public class BoardController {
             Model model // "cri" 라는 이름(명시적) 으로 Criteria 데이터를 담아서 Model 로 보냄
     ) {
         log.info("list.......................");
+        log.info("criteria: " + criteria); // Criteria 가 어떻게 파라미터 수집이 되는지 확인용
+        // http://localhost:8080/board/list?pageNum=8&amount=10&types=T&types=C&keyword=Test 로 던지면
+        // types 이름이 같고 여러개 있다면 배열로 들어감 ==> Parameters: Test(String), Test(String), 70(Integer), 10(Integer)
 
         List<BoardVO> list = boardService.getList(criteria);
         // Criteria 가 컨트롤러에서 수집되어 Service 에 전달하고 다시 Mapper 의 getPage() 호출
@@ -104,7 +107,10 @@ public class BoardController {
     // /read, /modify 도 변수로 처리할 수 있음
     public String read(
             @PathVariable(name = "job") String job,
-            @PathVariable(name = "bno") Long bno, Model model) {
+            @PathVariable(name = "bno") Long bno,
+            @ModelAttribute("cri") Criteria cri, // QueryString 용도, model 안에 자동으로 추가됨
+            Model model
+    ) {
 
         log.info("job : " + job);
         // 수행할 작업이 무엇인지 로그

@@ -15,6 +15,11 @@ public class Criteria {
     private int amount = 10; // 페이지 당 컨텐츠의 개수
     // skip 은 MyBatis 기능(getter 읽기) 때문에 getSkip 을 만들어서 처리할 것
 
+    // 검색의 타입 -> null, t, c, w 등등....
+    private String[] types;
+    // 검색하려는 내용
+    private String keyword;
+
     public void setPageNum(int pageNum) {
         if (pageNum <= 0) {
             this.pageNum = 1;

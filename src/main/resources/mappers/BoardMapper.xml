@@ -4,6 +4,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.ex00.mappers.BoardMapper">
+
+    <!-- SQL 조각 -> 재사용을 위해 SQL 태그 넣기-->
+    <sql id="search">
+        <!-- collection : Criteria "types" 변수 (null 일 수 있음), item : 내용물 (t,c,w 등) -->
+        <if test="(types != null and keyword != null)"> <!-- null 이 아닐 경우에만 루프 돌도록-->
+            <!--bno 가 0 보다 크다는 조건이 있으므로 AND 사용, for 문 돌기 전에 OPEN -->
+            <foreach collection="types" item="type" open=" and ( " separator="OR" close=")">
+                <choose>
+                    <when test='type.equals("T")'> <!-- "" 대신 '' 사용하면 .equals 사용 가능-->
+                        title like concat('%',#{keyword},'%')
+                    </when>
+                    <when test='type.equals("C")'>
+                        content like concat('%',#{keyword},'%')
+                    </when>
+                    <when test='type.equals("W")'>
+                        writer like concat('%',#{keyword},'%')
+                    </when>
+                </choose>
+            </foreach>
+        </if>
+    </sql>
     <!-- 아래에서 실행하는 한 ROW 를 어떻게 처리할것인가 -> ResultType
        mybatis-config.xml 의  TypeAliases 에서 패키지 설정을 했으므로 단순히 BoardVO 라고 쓸 수 있음 -->
     <select id="getList" resultType="BoardVO">
@@ -11,12 +32,27 @@
     </select>
 
     <select id="getPage" resultType="BoardVO">
-        select * from tbl_board where bno > 0 order by bno desc
+        select * from tbl_board where bno > 0
+        <include refid="search"/>
+        order by bno desc
         limit #{skip}, #{amount} <!-- MyBatis 가 getter 를 읽어옴 & Lombok @Data 로 getAmount 처리 -->
+
+        <!-- 만약 forEach 내 #{type} 으로 처리하고 types 에 값이 3개 들어온다면
+         select * from tbl_board where bno > 0
+         and ( ? OR ? OR ? )
+         order by bno desc limit ?, ? 출력됨-->
+
+        <!-- 만약 forEach 내 <choose> 로 값을 주고 types 에 TWC 가 온다면
+        select * from tbl_board where bno > 0
+        and ( title like ? OR content like ? OR writer like ? )
+        order by bno desc limit ?, ? 출력됨
+        MariaDB 에서 like 처리만 하면 해결 -> concat('%',#{keyword},'%') 사용 가능 -->
     </select>
 
     <select id="getTotal" resultType="int">
-        select count(bno) from tbl_board <!-- 인덱스를 타기 위해?? -->
+        select count(bno) from tbl_board where bno > 0
+        <!-- 인덱스를 타기 위해?? -->
+        <include refid="search"/>
     </select>
 
     <insert id="insert">

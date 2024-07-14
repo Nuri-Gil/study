@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="07.11 Study">
-      <change afterPath="$PROJECT_DIR$/07.11.sql" afterDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0712 깃허브">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/Criteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/Criteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/mappers/BoardMapperTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/mappers/BoardMapperTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +61,30 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/study" source="main" />
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$/ex00" value="self-study" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -70,8 +94,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Nuri-Gil/ex00.git&quot;,
-    &quot;accountId&quot;: &quot;16931b83-0ace-4963-ae27-b8ff19ba8cb4&quot;
+    &quot;url&quot;: &quot;https://github.com/Nuri-Gil/study.git&quot;,
+    &quot;accountId&quot;: &quot;99fe22b7-3a0a-44c1-989a-954b1e9500af&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -92,44 +116,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.BoardMapperTests.test1.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testList.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testPage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testSelect.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardServiceTests.testList.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build ex00.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TimeTests.test1.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.89.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/klarnuri/Desktop/Spring/gugucoding/ex00&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.BoardMapperTests.test1.executor": "Run",
+    "Gradle.BoardMapperTests.testInsert.executor": "Run",
+    "Gradle.BoardMapperTests.testList.executor": "Run",
+    "Gradle.BoardMapperTests.testPage.executor": "Run",
+    "Gradle.BoardMapperTests.testSelect.executor": "Run",
+    "Gradle.BoardMapperTests.testUpdate.executor": "Run",
+    "Gradle.BoardServiceTests.testList.executor": "Run",
+    "Gradle.Build ex00.executor": "Run",
+    "Gradle.TimeTests.test1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.89.executor": "Run",
+    "git-widget-placeholder": "self-study",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "js.last.introduce.type": "CONST",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/goott/Desktop/Spring/gugucoding/ex00",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00" />
@@ -264,6 +288,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.89" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8 -Dconsole.encoding=UTF8" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -396,7 +421,12 @@
       <workItem from="1720603710282" duration="11000" />
       <workItem from="1720659119051" duration="21887000" />
       <workItem from="1720701745079" duration="6051000" />
-      <workItem from="1720716075891" duration="1309000" />
+      <workItem from="1720716075891" duration="1613000" />
+      <workItem from="1720766658360" duration="1617000" />
+      <workItem from="1720768450008" duration="2020000" />
+      <workItem from="1720770522326" duration="1235000" />
+      <workItem from="1720771782143" duration="3882000" />
+      <workItem from="1720977247077" duration="5221000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -438,17 +468,82 @@
       <option name="project" value="LOCAL" />
       <updated>1720702181165</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="07.11 Study">
+      <option name="closed" value="true" />
+      <created>1720717583251</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720717583252</updated>
+    </task>
+    <task id="LOCAL-00007" summary="07.11 Study">
+      <option name="closed" value="true" />
+      <created>1720717659039</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720717659039</updated>
+    </task>
+    <task id="LOCAL-00008" summary="07.10 Study">
+      <option name="closed" value="true" />
+      <created>1720766382212</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720766382212</updated>
+    </task>
+    <task id="LOCAL-00009" summary="0712 깃허브">
+      <option name="closed" value="true" />
+      <created>1720767337342</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720767337342</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/ex00" />
+      <path value="$PROJECT_DIR$/study" />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="07.09 Study" />
-    <MESSAGE value="07.10 Study" />
     <MESSAGE value="07.11 Study" />
-    <option name="LAST_COMMIT_MESSAGE" value="07.11 Study" />
+    <MESSAGE value="07.10 Study" />
+    <MESSAGE value="0712 깃허브" />
+    <option name="LAST_COMMIT_MESSAGE" value="0712 깃허브" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

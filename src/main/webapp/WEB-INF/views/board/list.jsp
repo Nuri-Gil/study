@@ -25,7 +25,22 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            ${pageMaker} <%-- 테스트용 --%>
+            <%-- actionForm 을 클릭하면 get 방식으로 아래의 pageNum, amount 를 가지고 /board/list 로 이동하는데
+            이 때도 검색 조건 (cri 에서 넘어오는 동적인 값) 을 유지하면서 이동할 수 있도록 설정 --%>
+            <form id="actionForm" method="get" action="/board/list">
+                <input type="hidden" name="pageNum" value="${cri.pageNum}">
+                <input type="hidden" name="amount" value="${cri.amount}">
+                <%-- 히든 타입으로 검색 type 이 넘어올 수 있도록--%>
+                <c:if test="${cri.types != null && cri.keyword != null}">
+                    <%-- 키워드는 2개 이상이 들어갈 수 있으므로, 배열로 만들기도 위해 forEach 사용--%>
+                    <c:forEach var="type" items="${cri.types}">
+                        <input type="hidden" name="types" value="${type}">
+                    </c:forEach>
+                    <input type="hidden" name="keyword" value="<c:out value="${cri.keyword}"/>">
+                </c:if>
+            </form>
+
+            <%-- ${pageMaker} --%><%-- 테스트용 --%>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
@@ -107,14 +122,32 @@
         myModal.show()
     }
 
+    const actionForm = document.querySelector("#actionForm"); /* id 를 썼기 때문에 # 사용 */
+
+    /* .tbody 를 클릭하면 tr 을 찾아 dataset 에서 bno 를 찾아 window.location 으로 이동하도록
+    * 검색 조건이 늘어날 수록 코드가 지저분해지는 단점이 생김 -> form 태그를 사용하는것이 깔끔함 */
     document.querySelector('.tbody').addEventListener("click", (e) => {
+
         const target = e.target.closest("tr") /* 클릭했을 때 가장 가까운 상위를 찾는다 (여기서는 TD 를 클릭하고 TR 을 찾음) */
         const bno = target.dataset.bno
 
-        console.log(bno);
+        const before = document.querySelector("#clonedActionForm")
 
-        // console.log(`/board/read/\${bno}`)
-        window.location = `/board/read/\${bno}` /* 백틱을 쓰면 문자열을 탬플릿처럼 사용 가능 */
+        if (before) {
+            before.remove()
+        }
+
+        const clonedActionForm = actionForm.cloneNode(true); /* actionForm 을 복사함 */
+        clonedActionForm.setAttribute("action", `/board/read/\${bno}`) /* pageNum 도 따라서 붙어 이동해야함 */
+        /* 원래 있는 actionForm 을 수정할 경우 뒤로 갔을 때 예전의 데이터를 유지할 수 있음 */
+        clonedActionForm.setAttribute("id", `clonedActionForm`)
+
+        document.body.append(clonedActionForm)
+
+        clonedActionForm.submit()
+
+
+        /*window.location = `/board/read/\${bno}`*/ /* 백틱을 쓰면 문자열을 탬플릿처럼 사용 가능 */
     }, false)
 
     // 문서의 쿼리 중 ".pagination" 클래스를 찾아 원래 존재하는것 바깥쪽에 "click" 이벤트를 걸고 event 를 파라미터로 받아 function 주기
@@ -127,7 +160,11 @@
         const targetPage = target.getAttribute("href") // target 에 prev, 현재, next 의 참조값을 가져옴 -> 숫자 값이기 때문에 변수 처리(const)
         console.log(targetPage)
 
-        window.location = `/board/list?pageNum=\${targetPage}`
+        actionForm.setAttribute("action", "/board/list")
+        /* name 이 pageNum 인 인풋 태그를 찾아서 targetPage 라는 밸류로 설정 */
+        actionForm.querySelector("input[name='pageNum']").value = targetPage
+        actionForm.submit()
+        /*window.location = `/board/list?pageNum=\${targetPage}`*/
     });
 </script>
 
