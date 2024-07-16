@@ -59,9 +59,19 @@
     </div>
 </div>
 
+// modify 는 수정할 때 board/list 로 가는 액션이 있는 곳을 찾아 수정
 <form id="listForm" action="/board/list">
     <input type="hidden" name="pageNum" value="${cri.pageNum}">
     <input type="hidden" name="amount" value="${cri.amount}">
+    <%-- 추가로 히든 타입으로 검색 type 이 넘어올 수 있도록--%>
+    <c:if test="${cri.types != null && cri.keyword != null}">
+        <%-- 키워드는 2개 이상이 들어갈 수 있으므로, 배열로 만들기도 위해 forEach 사용--%>
+        <c:forEach var="type" items="${cri.types}">
+            <input type="hidden" name="types" value="${type}">
+        </c:forEach>
+        <input type="hidden" name="keyword" value="<c:out value="${cri.keyword}"/>">
+    </c:if>
+    // 이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지
 </form>
 
 <%@include file="../includes/footer.jsp" %>
@@ -85,6 +95,8 @@
 
         actionForm.action =`/board/modify/\${bno}`
         actionForm.method = 'post'
+        /* 책에서는 modify 후에 검색조건을 유지하려고 했으나 여기선 제목이 수정되었을 때 일반 조회로 가도록 해봄
+        * RedirectAttribute.addFlashAttribute 사용해서 */
         actionForm.submit()
     }, false); /*버블링 핸들러 false*/
 

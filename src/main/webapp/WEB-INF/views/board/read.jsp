@@ -57,8 +57,20 @@
 </div>
 
 <form id="actionForm" method="get" action="/board/list">
+    // cri 의 pageNum, amount 2개만 가지고 있음
     <input type="hidden" name="pageNum" value="${cri.pageNum}">
     <input type="hidden" name="amount" value="${cri.amount}">
+    <input type="hidden" name="pageNum" value="${cri.pageNum}">
+    <input type="hidden" name="amount" value="${cri.amount}">
+    <%-- 추가로 히든 타입으로 검색 type 이 넘어올 수 있도록--%>
+    <c:if test="${cri.types != null && cri.keyword != null}">
+        <%-- 키워드는 2개 이상이 들어갈 수 있으므로, 배열로 만들기도 위해 forEach 사용--%>
+        <c:forEach var="type" items="${cri.types}">
+            <input type="hidden" name="types" value="${type}">
+        </c:forEach>
+        <input type="hidden" name="keyword" value="<c:out value="${cri.keyword}"/>">
+    </c:if>
+    // 이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지
 </form>
 
 <%@include file="../includes/footer.jsp" %>

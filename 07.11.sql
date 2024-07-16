@@ -52,3 +52,23 @@ from tbl_board;
 
 drop table tbl_board;
 alter table temp_table rename tbl_board;
+
+
+-- 07.15 tbl_reply 테이블부터 생성
+create table tbl_reply
+(
+    rno        int auto_increment primary key,
+    bno        int           not null,
+    replyText  varchar(2000) not null,
+    replyer    varchar(100)  not null,
+    regDate    timestamp default now(),
+    updateDate timestamp default now(),
+    -- FK 지정하는 SQL 문
+    constraint fk_reply_board
+        foreign key (bno) -- FK 컬럼 값
+            references tbl_board (bno) -- 참조 값
+);
+
+select * from tbl_board order by bno desc ;
+
+-- #576, 575

@@ -24,6 +24,35 @@
         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
     </div>
     <div class="card-body">
+        <div>
+            <select name="typeSelect">
+                <option value="" }>--</option>
+                <option value="T" ${cri.typeStr == 'T' ? 'selected' : '' }>제목</option>
+                <option value="C" ${cri.typeStr == 'C' ? 'selected' : '' }>내용</option>
+                <option value="W" ${cri.typeStr == 'W' ? 'selected' : '' }>작성자</option>
+                <option value="TC"${cri.typeStr == 'TC' ? 'selected' : '' }>제목 OR 내용</option>
+                <option value="TW" ${cri.typeStr == 'TW' ? 'selected' : '' }>제목 OR 작성자</option>
+                <option value="TCW" ${cri.typeStr == 'TCW' ? 'selected' : '' }>제목 OR 내용 OR 작성자</option>
+            </select>
+            <input type="text" name="keywordInput" value="<c:out value="${cri.keyword}"/>">
+            <%-- searchBtn 을 클릭 했을 때 typeSelect 안의 선택된 값을 알아야 함--%>
+            <button class="btn btn-default searchBtn">Search</button>
+        </div>
+
+        <%--<div>
+            <select name="typeSelect">
+               <option value="" ${cri.checkValue("") ? 'selected': '' } >--</option>
+                <option value="T" ${cri.checkValue("") ? 'selected': '' } >제목</option>
+                <option value="C" ${cri.checkValue("") ? 'selected': '' } >내용</option>
+                <option value="W" ${cri.checkValue("") ? 'selected': '' } >작성자</option>
+                <option value="TC" ${cri.checkValue("") ? 'selected': '' } >제목 OR 내용</option>
+                <option value="TW" ${cri.typeStr == 'TW' ? 'selected' : '' } >제목 OR 작성자</option>
+                <option value="TCW" ${cri.checkValue("") ? 'selected': '' } >제목 OR 내용 OR 작성자</option>
+            </select>
+            <input type="text" name="keywordInput"/>
+           <button class="btn btn-default searchBtn">Search</button>
+    </div>--%>
+
         <div class="table-responsive">
             <%-- actionForm 을 클릭하면 get 방식으로 아래의 pageNum, amount 를 가지고 /board/list 로 이동하는데
             이 때도 검색 조건 (cri 에서 넘어오는 동적인 값) 을 유지하면서 이동할 수 있도록 설정 --%>
@@ -165,7 +194,47 @@
         actionForm.querySelector("input[name='pageNum']").value = targetPage
         actionForm.submit()
         /*window.location = `/board/list?pageNum=\${targetPage}`*/
-    });
+    }, false);
+
+    // querySelector 에서 "." 이 빠지면 searchBtn 클래스 못찾음!!!
+    document.querySelector(".searchBtn").addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const selectObj = document.querySelector("select[name='typeSelect']");
+
+        const selectValue = selectObj.options[selectObj.selectedIndex].value;
+
+        console.log("selectValue----------------")
+        console.log(selectValue) // T, C, TCW 등
+
+        const arr = selectValue.split(""); // 글자 쪼개기
+
+        console.log(arr)
+
+        // actionForm 에 hidden 태그로 만들어서 검색 조건 추가
+        // 페이지 번호는 1페이지로
+        // amount 도 새로 구해야 함
+
+        let str = ''
+
+        str = `<input type='hidden' name='pageNum' value=1>` // 검색을 하면 무조건 1페이지로
+        str += `<input type='hidden' name='amount' value=${cri.amount}>` // Criteria 안의 amount 값 쓰기 (amount 는 검색 조건이 아님!)
+
+        if (arr && arr.length > 0) { // 만약 배열이 있다면
+            for (const type of arr) {
+                str += `<input type='hidden' name='types' value=\${type}>` // types 태그 만들기
+            }
+        }
+        const keywordValue = document.querySelector("input[name='keywordInput']").value
+        str += `<input type='hidden' name='keyword' value='\${keywordValue}'>`
+        // 원래 actionForm 에 있던 내용을 새로운 input 태그 str 로 교체하기
+        actionForm.innerHTML = str
+
+        // console.log(str)
+        actionForm.submit()
+
+    }, false);
 </script>
 
 <%@include file="../includes/end.jsp" %>

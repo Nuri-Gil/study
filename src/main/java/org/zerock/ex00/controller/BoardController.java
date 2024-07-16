@@ -179,13 +179,16 @@ public class BoardController {
     @PostMapping("/modify/{bno}")
     public String modify(
             @PathVariable(name = "bno") Long bno,
-            BoardVO boardVO // 제목이나 내용이 변경되므로 수집해야 함
+            BoardVO boardVO,
+            RedirectAttributes rttr// 제목이나 내용이 변경되므로 수집해야 함
     ) {
         boardVO.setBno(bno); // @PathVariable 에 있는 번호를 다시 한번 세팅
 
         log.info("boardVO : " + boardVO);
 
         boardService.modify(boardVO);
+
+        rttr.addFlashAttribute("result", boardVO.getBno());
 
         return "redirect:/board/read/" + bno;
     }
