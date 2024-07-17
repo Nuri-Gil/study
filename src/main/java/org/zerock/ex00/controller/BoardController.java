@@ -129,7 +129,7 @@ public class BoardController {
         model.addAttribute("vo", boardVO);
         // 모델에 "vo" 라는 이름으로 가져온 몇번 글을 담음 -> jsp 에서 변수로 사용
         return "/board/" + job;
-        // 만들어진 read.jsp 로 보냄
+        // 만들어진 job.jsp 로 보냄
     }
 
     @GetMapping("/register")

@@ -2,7 +2,7 @@ package org.zerock.ex00.domain;
 
 import lombok.Getter;
 import lombok.ToString;
-
+// 페이지 번호를 만들어내는 클래스
 @Getter
 @ToString
 public class PageDTO {

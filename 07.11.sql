@@ -71,4 +71,12 @@ create table tbl_reply
 
 select * from tbl_board order by bno desc ;
 
--- #576, 575
+update tbl_reply set replyText = 'AAA',
+                     updateDate = now()
+where rno = 51
+;
+
+-- 인덱스 만들기
+CREATE INDEX idx_reply ON tbl_reply (bno desc, rno asc);
+
+select * from tbl_reply where bno = 575;

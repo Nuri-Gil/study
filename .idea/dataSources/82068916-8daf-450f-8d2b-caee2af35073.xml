@@ -1221,7 +1221,7 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
     </schema>
     <schema id="509" parent="1" name="springdb">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-07-15.09:09:04</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-07-16.16:57:40</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="510" parent="1" name="springdbuser">
@@ -1236,7 +1236,7 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <column id="513" parent="511" name="bno">
-      <AutoIncrement>1024</AutoIncrement>
+      <AutoIncrement>8192</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1259,13 +1259,11 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
     <column id="517" parent="511" name="regDate">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>current_timestamp()</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="518" parent="511" name="updateDate">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>current_timestamp()</DefaultExpression>
-      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
     <index id="519" parent="511" name="PRIMARY">
@@ -1319,8 +1317,10 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="529" parent="512" name="fk_reply_board">
-      <ColNames>bno</ColNames>
+    <index id="529" parent="512" name="idx_reply">
+      <ColNames>bno
+rno</ColNames>
+      <ReverseColNames>bno</ReverseColNames>
       <Type>btree</Type>
     </index>
     <key id="530" parent="512" name="PRIMARY">

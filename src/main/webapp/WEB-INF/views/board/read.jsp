@@ -56,8 +56,19 @@
     </div>
 </div>
 
+<%-- 댓글 페이지 구현 & 카드 div 로 묶기--%>
+<div class="card shadow mb-4">
+    <ul class="list-group replyList">
+        <%-- li 하나씩이 각각의 댓글, li 를 탬플릿처럼 사용해보기 --%>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            Cras justo odio
+            <span class="badge badge-primary badge-pill">14</span>
+        </li>
+    </ul>
+</div>
+
 <form id="actionForm" method="get" action="/board/list">
-    // cri 의 pageNum, amount 2개만 가지고 있음
+    <%--cri 의 pageNum, amount 2개만 가지고 있음--%>
     <input type="hidden" name="pageNum" value="${cri.pageNum}">
     <input type="hidden" name="amount" value="${cri.amount}">
     <input type="hidden" name="pageNum" value="${cri.pageNum}">
@@ -70,25 +81,79 @@
         </c:forEach>
         <input type="hidden" name="keyword" value="<c:out value="${cri.keyword}"/>">
     </c:if>
-    // 이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지
+    <%--이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지--%>
 </form>
 
 <%@include file="../includes/footer.jsp" %>
 
+// Axios 추가
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script> /* Criteria 처리하는 스크립트 추가 */
 
-    const actionForm = document.querySelector("#actionForm"); /* #actionForm 이라는 id 를 찾아 변수 선언*/
-    const bno = '${vo.bno}'
-    document.querySelector(".btnList").addEventListener("click", (e) => {
-        actionForm.setAttribute("action", "/board/list")
-        actionForm.submit()
-    }, false); /*버블링 핸들러 false*/
+const actionForm = document.querySelector("#actionForm"); /* #actionForm 이라는 id 를 찾아 변수 선언*/
+const bno = '${vo.bno}'
 
-    document.querySelector(".btnModify").addEventListener("click", (e) => {
-        actionForm.setAttribute("action", `/board/modify/\${bno}`)
-        actionForm.submit()
-    }, false); /*버블링 핸들러 false*/
+document.querySelector(".btnList").addEventListener("click", (e) => {
+    actionForm.setAttribute("action", "/board/list")
+    actionForm.submit()
+}, false); /*버블링 핸들러 false*/
 
+document.querySelector(".btnModify").addEventListener("click", (e) => {
+    actionForm.setAttribute("action", `/board/modify/\${bno}`)
+    actionForm.submit()
+}, false); /*버블링 핸들러 false*/
+
+</script>
+
+<%--퍼포먼스를 위해서는 script 전달을 한번에 하는게 좋지만 연습을 위해 분리해 봄--%>
+<script>
+    // console.log(axios) // axios 존재 확인
+
+    // 변하지 않는 상수
+    const boardBno = ${vo.bno};
+    // 화면에서 유지해야 하는 값 (페이지 번호, 사이즈 등)
+    const replyUL = document.querySelector(".replyList"); /* 클래스 선택시 "." 꼭 추가하기!! */
+
+    // 비동기 함수 정의
+    // async function getList
+    // const getList = async function
+    const getList = async (pageParam, amountParam) => {
+        // pageParam 이 없으면 pageNum 으로 할당, JS 는 파라미터 개수가 일치하지 않아도 됨
+        const pageNum = pageParam || 1;
+        const amount = amountParam || 10;
+
+        // 호출할 경로 지정, Axios 에서 파라미터를 추가할 때는 {} 안에 params 로 추가함 (최근에는 축약형으로!!)
+        // await -> 비동기는 결과가 언제 올지 모르지만 동기화처럼 쓰기 위해 사용
+        // 비동기는 실행 없이 결과를 호출하려고 할 수 있으므로 실행 후 받는 일반적인 순서를 따르는것이 동기
+        const res = await axios.get(`/reply/list/\${boardBno}`, {
+            params: {pageNum, amount}
+        });
+
+        /* pageDTO, replyList 로 처리*/
+        const data = res.data;
+        const pageDTO = data.pageDTO;
+        const replyList = data.replyList;
+
+        printReplyList(pageDTO, replyList)
+    }
+
+    const printReplyList = (pageDTO, replyList) => {
+        replyUL.innerHTML = ""
+
+        let str = ''
+
+        for (const reply of replyList) { /* 댓글 수 만큼 반복 */
+            /* 구조 분해 할당 -> reply.rno, reply.Text 등의 여러 변수를 한번에 변수로 만들 수 있음 (추출) */
+            const {rno, replyText, replyer} = reply
+            str += `<li class="list-group-item d-flex justify-content-between align-items-center">
+            \${rno} --- \${replyText}
+            <span class="badge badge-primary badge-pill">\${replyer}</span>
+        </li>`
+        }
+        replyUL.innerHTML = str
+    }
+    getList() // 호출 시 파라미터가 없으므로 pageNum, amount 를 받음, 파라미터 하나만 던지면 1번 파라미터 pageNum 에 할당
 </script>
 
 <%@include file="../includes/end.jsp" %>
