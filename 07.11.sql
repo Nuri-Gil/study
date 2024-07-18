@@ -65,18 +65,30 @@ create table tbl_reply
     updateDate timestamp default now(),
     -- FK 지정하는 SQL 문
     constraint fk_reply_board
-        foreign key (bno) -- FK 컬럼 값
+        foreign key (bno)              -- FK 컬럼 값
             references tbl_board (bno) -- 참조 값
 );
 
-select * from tbl_board order by bno desc ;
+select *
+from tbl_board
+order by bno desc;
 
-update tbl_reply set replyText = 'AAA',
-                     updateDate = now()
+update tbl_reply
+set replyText  = 'AAA',
+    updateDate = now()
 where rno = 51
 ;
 
 -- 인덱스 만들기
 CREATE INDEX idx_reply ON tbl_reply (bno desc, rno asc);
 
-select * from tbl_reply where bno = 575;
+select *
+from tbl_reply
+where bno = 575;
+
+-- 댓글 DB 만들기
+SELECT *
+FROM tbl_reply;
+
+INSERT INTO tbl_reply (bno, replyText, replyer)
+        (SELECT bno, replyText, replyText FROM tbl_reply);

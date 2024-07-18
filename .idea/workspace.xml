@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0715 공부">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/ReplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" afterDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0718 공부">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/07.11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/07.11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/PageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/PageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/ReplyVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/ReplyVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/ReplyMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/ReplyMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ReplyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ReplyMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/mappers/ReplyMapperTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/mappers/ReplyMapperTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/studyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/studyNote.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -446,7 +435,8 @@
       <workItem from="1721004462262" duration="22251000" />
       <workItem from="1721107799458" duration="12218000" />
       <workItem from="1721148285924" duration="7059000" />
-      <workItem from="1721222199943" duration="5390000" />
+      <workItem from="1721222199943" duration="5479000" />
+      <workItem from="1721284678179" duration="3593000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -552,7 +542,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721109616221</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="0718 공부">
+      <option name="closed" value="true" />
+      <created>1721236815515</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721236815515</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +592,8 @@
     <MESSAGE value="0712 깃허브" />
     <MESSAGE value="0715 공부" />
     <MESSAGE value="0716" />
-    <option name="LAST_COMMIT_MESSAGE" value="0716" />
+    <MESSAGE value="0718 공부" />
+    <option name="LAST_COMMIT_MESSAGE" value="0718 공부" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

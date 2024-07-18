@@ -65,6 +65,21 @@
             <span class="badge badge-primary badge-pill">14</span>
         </li>
     </ul>
+    <%-- 댓글 페이지 리스트 번호 --%>
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+
 </div>
 
 <form id="actionForm" method="get" action="/board/list">
@@ -114,7 +129,8 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
     const boardBno = ${vo.bno};
     // 화면에서 유지해야 하는 값 (페이지 번호, 사이즈 등)
     const replyUL = document.querySelector(".replyList"); /* 클래스 선택시 "." 꼭 추가하기!! */
-
+    // 댓글들의 페이지 번호 처리를 위한 화면 클래스를 변수로 받기
+    const pageUL = document.querySelector(".pagination");
     // 비동기 함수 정의
     // async function getList
     // const getList = async function
@@ -152,7 +168,48 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         </li>`
         }
         replyUL.innerHTML = str
+
+        // ---------------------------- 댓글 페이지 번호 출력
+        // pageDTO 안에 있는 필요한 값 추출 -> startPage, endPage, prev, next
+        const {startPage, endPage, prev, next} = pageDTO
+        const pageNum = pageDTO.cri.pageNum
+        let pageStr = '' // HTML 문을 담기 위한 변수
+
+        // Prev
+        if (prev) {
+            pageStr +=
+                `<li class="page-item">
+            <a class="page-link" href="\${startPage-1}" tabindex="-1">Previous</a>
+        </li>`
+        }
+
+        for (let i = startPage; i <= endPage; i++) { // 반복문을 돌며 li, a 태그 넣을것
+            <!-- active 대신 삼항연산자 사용, 위에 있는 pageNum 사용 (cri 안에도 있음) -->
+            pageStr += `<li class="page-item \${i == pageNum? 'active' : ''}">
+                <a class="page-link" href="\${i}">\${i}</a>
+            </li>`;
+        }
+
+        // Next
+        if (next) {
+            pageStr +=
+                `<li class="page-item">
+            <a class="page-link" href="\${endPage + 1}" tabindex="-1">Next</a>
+        </li>`
+        }
+        pageUL.innerHTML = pageStr
     }
+
+    pageUL.addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const target = e.target
+        const pageNum = target.getAttribute("href")
+        // console.log(pageNum)
+
+        getList(pageNum) // amount 값 안주면 기본 10
+    }, false);
+
     getList() // 호출 시 파라미터가 없으므로 pageNum, amount 를 받음, 파라미터 하나만 던지면 1번 파라미터 pageNum 에 할당
 </script>
 
