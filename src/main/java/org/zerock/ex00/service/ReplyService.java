@@ -24,6 +24,11 @@ public class ReplyService {
         return replyVO.getRno(); // insert 후에는 insert 횟수인 count 만 나옴, rno 를 받아와야 함!!
     }
 
+    // 댓글의 total 값을 가져오는 기능
+    public int getReplyCountOfBoard(Long bno) {
+        return replyMapper.getTotal(null, bno); // Cri 값이 지금 없으므로 null
+    }
+
     public ReplyVO get(Long rno) {
         return replyMapper.selectOne(rno);
     }

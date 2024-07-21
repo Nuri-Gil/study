@@ -439,3 +439,56 @@ printReplyList 를 먼저 정의하고 파라미터로 pageDTO, replyList 를 �
 새로운 HTML 문을 담을 str 변수 선언
 반복문을 돌면서 replyList 의 내용(객체 수) 만큼 HTML 문을 str 변수에 더하면서 반복
 replyUL 의 내부 HTML 문을 str 변수로 대체
+
+-- 댓글 페이징 처리
+특정 게시글을 조회하면 게시글에 대한 서버 호출이 이루어짐 -> JSP 가 완성되고 결과물을 HTML, JS 를 보내고 브라우저가 받아서 출력함
+JS가 실행할 때 Axios 호출이 있으니까 /reply/list/bno(특정 게시물)?pageNum=...&amount=... (Criteria 정보) 에 가서 QueryString 전달
+저 URI 에서 JSON 데이터를 Axios 가 가져다가 화면에 댓글 목록을 만들면서 출력 (Dynamic HTML)
+댓글의 페이지 번호도 추가해야함
+1. 리스트 구현에 필요한 HTML 코드 넣기 (BootStrap) -> 댓글 페이지 구현 div 안에 넣기
+2. 위에 구현한 HTML 코드의 .pagination 클래스를 pageUL 변수에 담기
+3. pageDTO (axios 가 받아주는 JSON, getList 함수에서 정의했음, printReplyList 의 파라미터) 에서 필요한 데이터들을 변수로 추출
+4. pageDTO 가 가져오는 cri 안의 pageNum 도 변수로 받기
+5. HTML 문을 담을 변수 선언 (내용은 '')
+6. startPage 를 선언했으므로 startPage 부터 endPage 까지 반복문을 돌며 li 태그 작성
+7. li 클래스 안에 active 속성을 현재 페이지 에서만 넣을 수 있도록 삼항연산자 사용 (JSP 안에서 JS 사용시 Java 와 혼동 되지 않도록 \${} 사용)
+8. 이전, 다음 pagination 처리를 위해 prev 는 for 문 전에 작성, next 는 for 다음에
+
+-- 댓글 페이지 이벤트 처리
+댓글 클릭 시에 동적으로 변할 수 있는 이벤트가 있어야 함
+JS 를 통해 만들어지는 HTML 에 처음부터 이벤트를 걸면 먹히지 않음!!
+기존에 존재하는 Element 에 동적 이벤트를 걸어야 함 -> 이벤트의 실제 내용물을 찾아갈 수 있도록
+href 값에 startPage-1, endPage+1 을 할당하고 클릭 시 기본동작 막아야 함!!
+pageUl 에 addEventListener 를 걸고 click 이벤트 걸기,
+이벤트 처리 함수, 핸들러 함수 만들기, 버블링 false, 기본동작 막기
+이벤트의 타겟을 target 변수에 담고 타겟에 getAttribute 로 href 값 얻어오기
+
+-- 댓글 등록 처리
+MODAL 창을 이용해서 replyText, replyer 입력을 할 수 있게 설계
+버튼을 이용해서 저장 -> POST 방식으로 Ajax 를 전달
+/reply/register URI 이용 -> n 번 댓글이 오도록 설계
+댓글이 달리면 기존의 댓글 목록이 안나옴 -> 갱신하는 이벤트도 넣기
+현재 댓글은 10개씩 출력하는데 시간의 순서대로 출력하고 있음 -> 새 댓글은 뒤로 밀려 보이지 않는 문제 해결
+list.jsp 에서 bootstrap 하위 Modal 을 사용했던 것처럼 read.jsp 에서 사용
+1. bootstrap.Modal 사용해서 상수로 받기
+2. Modal HTML 안의 input name 들 상수로 받기
+3. 버튼 설계 -> 버튼을 눌렀을 때 등록이 될 수 있도록 Ajax 작업 (getList 에서 async 로 함수 작업하듯)
+3.1 registerReply async 함수는 axios.post 방식으로 전달 -> 상수로 받음
+
+Axios 는 기본적으로 JS 객체를 JSON 을 주고받으니까 파라미터로 전달되는 replyObj 는 객체로 만들어짐
+replyObj 는 replyTextInput 과 replyerInput 의 value 로 이루어진 객체 (getList() 에서 정의)
+await 처리 했으므로 순차적으로 코드 짤 수 있음
+댓글은 항상 특정 bno 에 맞춰 들어가므로 bno 값도 잊지 말고 넣기!!
+이 과정들은 비동기 처리 -> 이 과정이 다 끝나면 Modal 창을 가리는 작업(hide) 를 하고싶음
+Modal 창을 닫는 함수를 파라미터로 전달하거나 (CallBack)
+모든 Async (비동기) 함수는 반환해 줄 수 있는게 없어서 리턴 타입이 Promise 타입으로 나오는데 then() 을 이용할 수도 있음
+registerReply 함수는 비동기 -> 리턴 값이 없으므로 result 는 undefined 가 나옴 -> Modal 닫기만 실행
+
+지금 추가된 댓글들은 새로고침 전에는 보이지 않음 -> 새로 목록데이터를 가져오는 작업을 넣어야 함
+목록데이터를 가져와도 댓글이 1페이지에 있지 않다면 문제가 생김
+
+댓글을 추가하면 새로운 댓글의 번호가 나옴 -> DB 에서 몇개의 댓글이 있는지 받아오기 -> 댓글 수에 맞는 페이지 조회 구현
+새로운 댓글이 달려도 또 다른 댓글이 달릴 수 있음 -> 동시성 처리에 유의
+
+Mapper (Repository) 부터 작성 시작 -> ReplyService 에 기능 구현 -> Controller 에서 설정 (결과 값을 보내는 기능까지 구현!)
+이 기능으로 댓글의 갯수를 read.jsp 의 re

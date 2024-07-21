@@ -81,13 +81,42 @@
     </ul>
 
 </div>
+<%-- 댓글 등록용 MODAL 창 추가--%>
+<div class="modal" id="replyModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Reply Text</span>
+                    </div>
+                    <input type="text" name="replyText" class="form-control">
+                </div>
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Replyer</span>
+                    </div>
+                    <input type="text" name="replyer" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="replyRegBtn" type="button" class="btn btn-primary">Register</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <form id="actionForm" method="get" action="/board/list">
     <%--cri 의 pageNum, amount 2개만 가지고 있음--%>
-    <input type="hidden" name="pageNum" value="${cri.pageNum}">
-    <input type="hidden" name="amount" value="${cri.amount}">
-    <input type="hidden" name="pageNum" value="${cri.pageNum}">
-    <input type="hidden" name="amount" value="${cri.amount}">
+    <input type="hidden" name="pageNum" value="${cri.pageNum}"> <%-- 몇 페이지 리스트 인지 --%>
+    <input type="hidden" name="amount" value="${cri.amount}"> <%-- 몇개 씩 보여주는지--%>
     <%-- 추가로 히든 타입으로 검색 type 이 넘어올 수 있도록--%>
     <c:if test="${cri.types != null && cri.keyword != null}">
         <%-- 키워드는 2개 이상이 들어갈 수 있으므로, 배열로 만들기도 위해 forEach 사용--%>
@@ -154,6 +183,17 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         printReplyList(pageDTO, replyList)
     }
 
+    // 버튼을 눌렀을 때 작동하도록 Ajax 작업, 파라미터는 객체로 받기
+    const registerReply = async (replyObj) => {
+        const res = await axios.post('/reply/register', replyObj);
+        const data = res.data; // 하위 데이터 RNO, COUNT 의 대소문자 주의!
+        /* data.COUNT 를 이용해서 마지막 페이지를 구하기
+        * 페이지당 10개를 출력하는 경우 -> 10.0 으로 나누어서 ceil 하기*/
+        const lastPage = Math.ceil(data.COUNT / 10.0);
+        /* 새로운 댓글의 위치를 모르므로 Ajax 통신을 한번 더 함 -> getList 한번 더 호출 -> 다시 댓글을 가져옴*/
+        getList(lastPage)
+    };
+
     const printReplyList = (pageDTO, replyList) => {
         replyUL.innerHTML = ""
 
@@ -211,6 +251,31 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
     }, false);
 
     getList() // 호출 시 파라미터가 없으므로 pageNum, amount 를 받음, 파라미터 하나만 던지면 1번 파라미터 pageNum 에 할당
+
+    // Modal 이용하기 위해 bootstrap.Modal 사용
+    const replyAddModal = new bootstrap.Modal(document.querySelector('#replyModal'));
+    // Modal HTML 안의 input 타입으로 선언된 'replyText, replyer 를 사용하기 위해 상수로 선언
+    const replyTextInput = document.querySelector("input[name='replyText']");
+    const replyerInput = document.querySelector("input[name='replyer']");
+
+    replyAddModal.show()
+
+    // replyRegBtn id 에 이벤트 추가
+    document.querySelector("#replyRegBtn").addEventListener("click", e => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const replyObj = {
+            replyText: replyTextInput.value,
+            replyer: replyerInput.value,
+            bno: boardBno
+        }
+        registerReply(replyObj).then(result => {
+            replyAddModal.hide()
+        });
+
+    }, false);
+
 </script>
 
 <%@include file="../includes/end.jsp" %>

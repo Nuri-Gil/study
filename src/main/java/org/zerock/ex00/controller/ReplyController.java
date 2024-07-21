@@ -31,7 +31,10 @@ public class ReplyController {
 
         log.info(replyVO);
         Long rno = replyService.register(replyVO);
-        return Map.of("RNO", rno);
+
+        // 댓글의 수
+        int replyCount = replyService.getReplyCountOfBoard(replyVO.getBno());
+        return Map.of("RNO", rno, "COUNT", (long) replyCount); // replyCount 는 int, 맵 제네릭을 위해 long 으로 캐스팅
     }
 
     @GetMapping("/{rno}")
