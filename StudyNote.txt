@@ -526,7 +526,23 @@ AOP 는 이런 것들의 미리 순서나 방법을 정해두는 것
 
 -- AOP 설명
 왜 쓰는가? -> 공통 코드가 사라짐 (cross concern)
-어떻게 적용하는가? -> Spring AOP, CGLIB, Aspectj 같은 라이브러리 사용
+어떻게 적용하는가? -> Spring AOP, CGLIB, Aspectj 같은 라이브러리 사용 (수업에서는 AspectJ 사용 -> Runtime, Weaver)
 어떻게 쓰는가? -> 로그, 버그 검증시 -> Transaction 으로 연결됨
+Spring AOP, AspectJ Runtime, AspectJ Weaver 추가 (AspectJ 는 runtimeOnly -> implementation 으로 변경하여 추가)
 
-build.gradle 에서 라이브러리 추가할 때는 spring framework 버전에 주의할 것!!!
+-- AOP 용어
+AOP 에서의 Aspect 는 기능별로 프로그램을 세분화 시키는 것 (관점)
+AspectJ -> 내가 없는 코드가 붙는 것
+내가 만든 코드 -> target 이라 부름 (타겟)
+target 에 원하는 기능이 있음 -> Aspect (추상)
+Aspect 를 구현하는 코드를 Advice 라고 함 (구현 코드)
+타겟에 advice 를 적용하려면? 적용에 대한 설정 -> PointCut 포인트컷 (설정)
+타겟에 Advice 를 넣어 PointCut 설정으로 만들어지는 것 -> Proxy (프록시)
+
+타겟을 만들고 원하는 Advice (구현 코드) 를 만듦 -> 포인트컷은 설정 (만드는것은 아님) -> 프록시는 자동으로 만들어짐 (AutoProxy)
+
+-- AOP 개발 순서
+1. Target 개발 => 원하는 로직 개발
+2. 적용할 Aspect 고민 (1번과 2번은 순서가 바뀔 수도 있음) -> 클래스 형태의 Advice 개발 -> 설정 작업 (포인트 컷)
+3. 스프링 설정 변경 -> 자동으로 (AutoProxy) 프록시 생성
+3.1 자동으로 프록시가 생성되면 자동으로 만들어지는 클래스의 이름이 다를 수 있음 (예전에는 그 이유 때문에 인터페이스로 많이 씀)
