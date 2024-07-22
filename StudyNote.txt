@@ -528,3 +528,5 @@ AOP 는 이런 것들의 미리 순서나 방법을 정해두는 것
 왜 쓰는가? -> 공통 코드가 사라짐 (cross concern)
 어떻게 적용하는가? -> Spring AOP, CGLIB, Aspectj 같은 라이브러리 사용
 어떻게 쓰는가? -> 로그, 버그 검증시 -> Transaction 으로 연결됨
+
+build.gradle 에서 라이브러리 추가할 때는 spring framework 버전에 주의할 것!!!

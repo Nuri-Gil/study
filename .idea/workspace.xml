@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0716">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0722">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -442,6 +440,7 @@
       <workItem from="1721613563876" duration="6000" />
       <workItem from="1721613729493" duration="16673000" />
       <workItem from="1721639644571" duration="17000" />
+      <workItem from="1721639740642" duration="211000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -547,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721109616221</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="0722">
+      <option name="closed" value="true" />
+      <created>1721639818641</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721639818641</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +596,8 @@
     <MESSAGE value="0712 깃허브" />
     <MESSAGE value="0715 공부" />
     <MESSAGE value="0716" />
-    <option name="LAST_COMMIT_MESSAGE" value="0716" />
+    <MESSAGE value="0722" />
+    <option name="LAST_COMMIT_MESSAGE" value="0722" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
