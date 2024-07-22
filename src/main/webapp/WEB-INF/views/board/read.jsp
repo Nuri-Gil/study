@@ -106,6 +106,8 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button id="replyModBtn" type="button" class="btn btn-warning">Modify</button>
+                <button id="replyDelBtn" type="button" class="btn btn-danger">Delete</button>
                 <button id="replyRegBtn" type="button" class="btn btn-primary">Register</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
@@ -130,7 +132,6 @@
 
 <%@include file="../includes/footer.jsp" %>
 
-// Axios 추가
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script> /* Criteria 처리하는 스크립트 추가 */
@@ -202,7 +203,7 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         for (const reply of replyList) { /* 댓글 수 만큼 반복 */
             /* 구조 분해 할당 -> reply.rno, reply.Text 등의 여러 변수를 한번에 변수로 만들 수 있음 (추출) */
             const {rno, replyText, replyer} = reply
-            str += `<li class="list-group-item d-flex justify-content-between align-items-center">
+            str += `<li data-rno="\${rno}" class="list-group-item d-flex justify-content-between align-items-center">
             \${rno} --- \${replyText}
             <span class="badge badge-primary badge-pill">\${replyer}</span>
         </li>`
@@ -245,9 +246,32 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         e.stopPropagation()
         const target = e.target
         const pageNum = target.getAttribute("href")
-        // console.log(pageNum)
-
+        console.log(pageNum)
+        getList(pageNum)
+        currentPage = pageNum
         getList(pageNum) // amount 값 안주면 기본 10
+    }, false);
+
+    // 현재 댓글 페이지
+    let currentPage = 1
+    let currentRno = 0
+
+    /*Ajax 때문에 나중에 들고오는 데이터에 이벤트를 걸 수 없으므로 printReplyList 가 아니라 상위인 replyUL 에 이벤트 걸기 */
+    replyUL.addEventListener("click", e => {
+        e.stopPropagation()
+        const target = e.target;
+        // console.log(target)
+        // console.log("rno : " + rno)
+        // console.log("currentPage" + currentPage)
+        currentRno = target.getAttribute("data-rno") // li 클래스에 넣은 data-rno="\${rno} 추출
+
+        // async 함수를 호출하는 곳에서는 항상 Promise 타입을 받음 -> then 으로 처리하기
+        // result 라는 변수가 댓글이 됨
+        getReply(currentRno).then(result => {
+            replyTextInput.value = result.replyText
+            replyerInput.value = result.replyer
+            replyAddModal.show()
+        });
     }, false);
 
     getList() // 호출 시 파라미터가 없으므로 pageNum, amount 를 받음, 파라미터 하나만 던지면 1번 파라미터 pageNum 에 할당
@@ -258,7 +282,26 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
     const replyTextInput = document.querySelector("input[name='replyText']");
     const replyerInput = document.querySelector("input[name='replyer']");
 
-    replyAddModal.show()
+    // ReplyController 에서 댓글을 조회할 때 Ajax 로 만들어지는 데이터 구현
+    const getReply = async (rno) => {
+        const res = await axios.get(`/reply/\${rno}`)
+        // console.log(res)
+
+        return res.data
+    }
+
+    // replyAddModal.show()
+
+    // Axios 통신 정의
+    const deleteReply = async (rno) => {
+        const res = await axios.delete(`/reply/\${rno}`)
+        return res.data // 삭제가 되었다고 출력 -> {Result DELETE:true}
+    }
+
+    const modifyReply = async (replyObj) => {
+        const res = await axios.put(`/reply/\${currentRno}`, replyObj)
+        return res.data
+    };
 
     // replyRegBtn id 에 이벤트 추가
     document.querySelector("#replyRegBtn").addEventListener("click", e => {
@@ -275,6 +318,34 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         });
 
     }, false);
+
+    // 삭제용 버튼
+
+    // Modal 창 삭제 버튼 -> 댓글 1페이지로 가야 함 (Axios 통신, deleteReply 비동기 함수로 따로 뺄것)
+    document.querySelector("#replyDelBtn").addEventListener("click", e => {
+        var i = currentRno
+        deleteReply(currentRno).then(result => { // 현재 rno 를 삭제, then -> 성공했다면
+            alert(i + '번 댓글이 삭제되었습니다')
+            replyAddModal.hide() // 삭제 되면 Modal 창 가리기
+            getList() // 파라미터 없으면 1페이지 호출!
+        }, false);
+    })
+
+
+    document.querySelector("#replyModBtn").addEventListener("click", e => {
+        // modifyReply 에서 사용할 replyObj 정의
+        const replyObj = {
+            replyText: replyTextInput.value,
+            replyer: replyerInput.value,
+            bno: boardBno
+        }
+
+        modifyReply(replyObj).then(result => {
+            alert("댓글이 수정되었습니다.")
+            replyAddModal.hide()
+            getList(currentPage) // 수정이 되고 원래 페이지를 유지하기 위해 currentPage 파라미터!
+        });
+    });
 
 </script>
 

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0718 공부">
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0716">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/82068916-8daf-450f-8d2b-caee2af35073.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/ReplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Nuri-Gil/study.git&quot;,
-    &quot;accountId&quot;: &quot;16931b83-0ace-4963-ae27-b8ff19ba8cb4&quot;
+    &quot;accountId&quot;: &quot;a48cb8c7-3045-48a7-bbf0-1f9916f1b00d&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -131,6 +131,7 @@
     &quot;Gradle.ReplyMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.TimeTests.test1.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat 9.0.89.executor&quot;: &quot;Run&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
@@ -138,14 +139,14 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
     &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/goott/Desktop/Spring/gugucoding/ex00&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/goott/Desktop/React/react-app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -165,6 +166,7 @@
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00" />
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\webapp\WEB-INF\views\sample" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -244,7 +246,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ReplyMapperTests.testInsert" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyMapperTests.testSelect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -257,7 +259,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.zerock.ex00.mappers.ReplyMapperTests.testInsert&quot;" />
+            <option value="&quot;org.zerock.ex00.mappers.ReplyMapperTests.testSelect&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -383,10 +385,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.ReplyMapperTests.testInsert" />
       <item itemvalue="Gradle.ReplyMapperTests.testDelete" />
       <item itemvalue="Gradle.ReplyMapperTests.testGetList" />
       <item itemvalue="Gradle.ReplyMapperTests.testGetTotal" />
+      <item itemvalue="Gradle.ReplyMapperTests.testSelect" />
       <item itemvalue="Gradle.ReplyMapperTests.testUpdate" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.89" />
     </list>
@@ -396,15 +398,15 @@
         <item itemvalue="Gradle.ReplyMapperTests.testGetList" />
         <item itemvalue="Gradle.ReplyMapperTests.testUpdate" />
         <item itemvalue="Gradle.ReplyMapperTests.testDelete" />
-        <item itemvalue="Gradle.ReplyMapperTests.testInsert" />
+        <item itemvalue="Gradle.ReplyMapperTests.testSelect" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -434,13 +436,12 @@
       <workItem from="1720977247077" duration="5738000" />
       <workItem from="1721004462262" duration="22251000" />
       <workItem from="1721107799458" duration="12218000" />
-      <workItem from="1721148285924" duration="7059000" />
-      <workItem from="1721222199943" duration="5479000" />
-      <workItem from="1721284678179" duration="3855000" />
-      <workItem from="1721326951208" duration="2793000" />
-      <workItem from="1721465279658" duration="83000" />
-      <workItem from="1721499828947" duration="200000" />
-      <workItem from="1721549223863" duration="5209000" />
+      <workItem from="1721202299683" duration="612000" />
+      <workItem from="1721207786937" duration="26000" />
+      <workItem from="1721611084961" duration="734000" />
+      <workItem from="1721613563876" duration="6000" />
+      <workItem from="1721613729493" duration="16673000" />
+      <workItem from="1721639644571" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -546,23 +547,7 @@
       <option name="project" value="LOCAL" />
       <updated>1721109616221</updated>
     </task>
-    <task id="LOCAL-00014" summary="0718 공부">
-      <option name="closed" value="true" />
-      <created>1721236815515</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1721236815515</updated>
-    </task>
-    <task id="LOCAL-00015" summary="0718 공부">
-      <option name="closed" value="true" />
-      <created>1721288527267</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1721288527268</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,8 +589,7 @@
     <MESSAGE value="0712 깃허브" />
     <MESSAGE value="0715 공부" />
     <MESSAGE value="0716" />
-    <MESSAGE value="0718 공부" />
-    <option name="LAST_COMMIT_MESSAGE" value="0718 공부" />
+    <option name="LAST_COMMIT_MESSAGE" value="0716" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

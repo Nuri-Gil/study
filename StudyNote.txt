@@ -491,4 +491,40 @@ registerReply 함수는 비동기 -> 리턴 값이 없으므로 result 는 undef
 새로운 댓글이 달려도 또 다른 댓글이 달릴 수 있음 -> 동시성 처리에 유의
 
 Mapper (Repository) 부터 작성 시작 -> ReplyService 에 기능 구현 -> Controller 에서 설정 (결과 값을 보내는 기능까지 구현!)
-이 기능으로 댓글의 갯수를 read.jsp 의 re
+이 기능으로 댓글의 갯수를 read.jsp 의 registerReply 에서 페이징 처리 가능하도록
+
+-- 댓글 조회와 수정화면
+댓글에서는 페이징 처리를 했음 -> 댓글 조회를 하게 되면 그 사이에 댓글이 수정될 수 있음
+조회가 될 때에도 서버에서 호출하고 새로운 댓글을 조회해야 함 (요즘에는 무한 스크롤도 이용함)
+수정과 삭제를 Modal 창에서 하고 있는데 결과가 반영되는것을 확인해야 함 (페이지 확인 등)
+
+모달 창 하나 더 추가
+특정한 댓글을 클릭 (동적임, 원래 존재하는 바깥쪽 replyUL 에 이벤트를 걸고 가져오기)
+-> replyRegister 에서 Ajax 를 async 로 쓰면 동기화 처리가 되어 데이터를 나중에 가져오기 때문에 나중에 오는 내용은 이벤트가 걸리지 않음
+printReplyList 가 아니라 그 상위인 replyUL 에 이벤트 걸어야 이벤트를 걸고 불러올 수 있음
+const target = e.target -> 이벤트가 가르키는 타겟은 replyUL
+pageUL 의 번호도 받기 -> 이 모든 작업이 서버에서 데이터를 받아서 Modal 창에 데이터를 전달하기 위한 작업
+
+-- 댓글 화면에서 모달 출력
+reply 데이터를 가져왔으면 리턴을 함
+rno 를 파라미터로 받은 getReply 비동기 함수가 axios 를 이용해 JSON 타입으로 /reply/${rno} 를 GET 방식으로 처리함
+async 함수의 결과 값은 항상 Promise 타입이다
+
+-- 모달 화면에서 수정, 삭제 버튼 만들기
+삭제는 1페이지를 조회하는 것으로 돌아가면 됨
+ReplyController 의 delete 메서드에서는 "Result Delete" 라는 이름으로 결과값이 나옴
+read.jsp 에는 수많은 JS 코드가 있는데 따로 추출한 후 <script src="../경로.js"></script> <!-- 분리한 JavaScript 파일 경로 --> 등으로 빼는게 좋음
+
+------------ Part 5
+-- AOP / Transaction 설정
+AOP -> Aspect Oriented Program
+Aspect -> 관점
+코드를 짜다 보면 반복적으로 짜게 됨 -> 이것을 해결하기 위해 패턴을 사용함
+AOP 는 이런 것들의 미리 순서나 방법을 정해두는 것
+자바에서는 AOP 를 구현할 때 2가지 방법이 있음
+1. Java Proxy, 2. CGLIB -> Spring Boot 2.4 부터는 CGLIB 가 기본으로 포함
+
+-- AOP 설명
+왜 쓰는가? -> 공통 코드가 사라짐 (cross concern)
+어떻게 적용하는가? -> Spring AOP, CGLIB, Aspectj 같은 라이브러리 사용
+어떻게 쓰는가? -> 로그, 버그 검증시 -> Transaction 으로 연결됨
