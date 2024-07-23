@@ -18,26 +18,32 @@
         <h6 class="m-0 font-weight-bold text-primary">Board Register</h6>
     </div>
     <div class="card-body">
-        <form action="/board/register" method="post">
-            <div class="input-group input-group-lg">
+        <form action="/board/register" method="post" enctype="multipart/form-data">
+            <div class="form-group input-group input-group-lg">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Title</span>
                 </div>
                 <input type="text" name="title" class="form-control">
             </div>
-            <div class="input-group input-group-lg">
+            <div class="form-group input-group input-group-lg">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Content</span>
                 </div>
-                <input type="text" name="content" class="form-control">
+                <textarea name="content" class="form-control" rows="3"></textarea>
             </div>
-            <div class="input-group input-group-lg">
+            <div class="form-group input-group input-group-lg">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Writer</span>
                 </div>
                 <input type="text" name="writer" class="form-control">
             </div>
-            <div class="input-group input-group-lg">
+            <div class="form-group input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Files</span>
+                </div>
+                <input type="file" name="files" class="form-control">
+            </div>
+            <div class="form-group input-group input-group-lg">
                 <div>
                     <button type="submit" class="btn btn-primary">SUBMIT</button>
                 </div>

@@ -9,6 +9,7 @@ import org.zerock.ex00.domain.PageDTO;
 import org.zerock.ex00.domain.ReplyVO;
 import org.zerock.ex00.service.ReplyService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,7 +69,19 @@ public class ReplyController {
 
         PageDTO pageDTO = new PageDTO(criteria, total);
 
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("replyList", replyList);
+//        map.put("pageDTO", pageDTO);
+//        return map;
+
         return Map.of("replyList", replyList, "pageDTO", pageDTO);
+    }
+
+    // Transactional 실험용
+    @GetMapping("/txtest")
+    public String[] get(String str) {
+        replyService.insertTwo(str);
+        return new String[]{"A","B","C"};
     }
 }
 

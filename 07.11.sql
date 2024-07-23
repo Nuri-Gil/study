@@ -92,3 +92,21 @@ FROM tbl_reply;
 
 INSERT INTO tbl_reply (bno, replyText, replyer)
         (SELECT bno, replyText, replyText FROM tbl_reply);
+
+create table tbl_sample1(
+    s1  int auto_increment primary key ,
+    col varchar(500)
+);
+
+create table tbl_sample2(
+    s2  int auto_increment primary key ,
+    col varchar(50)
+);
+
+select *
+from tbl_sample1;
+
+select *
+from tbl_sample2;
+
+

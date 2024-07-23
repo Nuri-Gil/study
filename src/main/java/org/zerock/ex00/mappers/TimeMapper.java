@@ -1,5 +1,6 @@
 package org.zerock.ex00.mappers;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select; // mybatis 3 버전 이하는 ibatis 로 임포트 됨
 
 public interface TimeMapper {
@@ -13,4 +14,11 @@ public interface TimeMapper {
     String getTime();
 
     String getTime2();
+
+    // Transactional 실험을 위해 ReplyService 에서 실행할 SQL 문
+    @Insert("insert into tbl_sample1 (col) values (#{str})")
+    int insert1(String str);
+
+    @Insert("insert into tbl_sample2 (col) values (#{str})")
+    int insert2(String str);
 }

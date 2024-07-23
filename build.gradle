@@ -36,6 +36,7 @@ dependencies {
 
     // myBatis 용 추가 라이브러리
     implementation 'org.springframework:spring-jdbc:5.3.27'
+    // Transaction 라이브러리
     implementation 'org.springframework:spring-tx:5.3.27'
 
     // Spring AOP 추가, Spring Framework 와 버전 맞출 것

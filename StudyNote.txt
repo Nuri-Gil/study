@@ -528,7 +528,9 @@ AOP 는 이런 것들의 미리 순서나 방법을 정해두는 것
 왜 쓰는가? -> 공통 코드가 사라짐 (cross concern)
 어떻게 적용하는가? -> Spring AOP, CGLIB, Aspectj 같은 라이브러리 사용 (수업에서는 AspectJ 사용 -> Runtime, Weaver)
 어떻게 쓰는가? -> 로그, 버그 검증시 -> Transaction 으로 연결됨
-Spring AOP, AspectJ Runtime, AspectJ Weaver 추가 (AspectJ 는 runtimeOnly -> implementation 으로 변경하여 추가)
+Spring AOP, AspectJ Runtime, AspectJ Weaver 추가
+AspectJ 는 runtimeOnly -> implementation 으로 변경하여 추가 -> runtimeOnly 로는 클래스에서 Import 안됨!!!
+
 
 -- AOP 용어
 AOP 에서의 Aspect 는 기능별로 프로그램을 세분화 시키는 것 (관점)
@@ -546,3 +548,36 @@ Aspect 를 구현하는 코드를 Advice 라고 함 (구현 코드)
 2. 적용할 Aspect 고민 (1번과 2번은 순서가 바뀔 수도 있음) -> 클래스 형태의 Advice 개발 -> 설정 작업 (포인트 컷)
 3. 스프링 설정 변경 -> 자동으로 (AutoProxy) 프록시 생성
 3.1 자동으로 프록시가 생성되면 자동으로 만들어지는 클래스의 이름이 다를 수 있음 (예전에는 그 이유 때문에 인터페이스로 많이 씀)
+
+Aspect 는 추상이지만 실제로 구현하는 것은 Advice 라고 부름 -> Log 를 찍는 것이 수업의 Aspect -> LogAdvice 클래스 작성
+
+-- Transaction 적용
+Transaction -> 여러개의 작업이 하나의 거래를 만드는 것 (All or Nothing), 서비스에서 설정해야함 (수업은 root-context 에서)
+Transactional 설정을 위해 사용하는 모든 클래스에는 @Transactional 어노테이션을 넣고 시작할 것!!
+@Transactional 설정은 클래스 선언부와 메서드 에도 다 할 수 있음
+
+-- 파일 업로드를 위한 설정
+브라우저에서 업로드 하고 서버에서는 view/download 가 가능하도록 설정
+스프링에서 업로드를 설정하려면
+1. web.xml 설정 -> 톰캣에서 사용하는 파일 (과거에는 파일 업로드용 라이브러리 사용, 8 버전부터는 servlet 버전이 자체 지원)
+2. Spring mvc 설정 (Multipart Resolver) -> 파일 업로드 정보를 어떻게 풀 것인가 -> 톰캣 기능을 쓰겠다 라고 설정
+
+-- 게시물 첨부파일 처리
+1. 실제로 파일 업로드 처리를 하려면 MultipartFile API 를 사용해야함 (스프링 프레임워크에서 제공)
+파일을 업로드 하면 MultipartFile 타입으로 존재하게 됨 -> 이 데이터를 파일에 기록할 수 있음
+2. 스프링 프레임워크에서 제공하는 FileCopyUtil 을 이용하면 내장 메서드를 이용해 복사 등을 할 수 있음
+
+3. 데이터가 들어오게 되면 파일이 기록되는데 똑같은 이름의 파일이 들어오면 Overwrite 되면서 삭제되는 문제가 생김
+UUID 사용 -> 중복없는 문자열을 생성함 (36자), 중복해결을 위해 사용
+4. 썸네일 이미지를 만들어야 네트워크 데이터 처리에서 쉬워짐
+
+업로드를 위해서 별도의 유틸을 분리해서 작업하면 쉬워짐
+
+--
+게시물 등록할 때 제목, 내용, 작성자 를 넣는데 파일을 선택할 수 있도록 구현
+DB 만들기 전에 업로드가 정상적으로 되는지 확인해봄
+UpDownUtil 클래스를 @Component 를 이용해서 Bean 으로 등록할것인데 component-scan 패키지가 컨트롤러만 지정되어있음
+servlet-context 에서 설정하고 BoardController 의 registerPost 에서 파라미터로 받기
+
+등록을 하는 쪽에서 데이터를 보내야 하는데 register.jsp 의 form 태그에서 entType 을 multipart/form-data 로 변경
+하지 않으면 GET/POST 똑같이 날아감 -> Post 방식을 해야 업로드가 됨

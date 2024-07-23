@@ -5,12 +5,15 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.ex00.domain.BoardVO;
 import org.zerock.ex00.domain.Criteria;
 import org.zerock.ex00.domain.PageDTO;
 import org.zerock.ex00.service.BoardService;
+import org.zerock.ex00.util.UpDownUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller // 컨트롤러로 인식하라는 어노테이션
@@ -20,6 +23,9 @@ import java.util.List;
 public class BoardController {
     // 원래는 의존성 주입이 필요하지만 파라미터 수집이나 웹의 동작을 확인한 후에 해도 괜찮음
     private final BoardService boardService;
+
+    // servlet-context 에서 component-scan 설정 후 컨트롤러에서 final 로 선언하면 의존성 주입됨 (사용 가능)
+    private final UpDownUtil upDownUtil;
 
 /*
     // list -> 보드의 리스트, 경로 설정(url 같은거)을 직접 만드는 메서드에 할 수 있음
@@ -138,20 +144,32 @@ public class BoardController {
 
     @PostMapping("/register")
     // Redirection 하기 때문에 String -> 고정값이 나와야 하므로
-    public String registerPost(BoardVO boardVO, RedirectAttributes rttr) {
+    public String registerPost(
+            BoardVO boardVO,
+            @RequestParam(value = "files", required = false) MultipartFile[] files,
+            // 파라미터로 업로드 되는 데이터를 받기, input 타입의 이름은 files, 없을 수 있으므로 required false
+            RedirectAttributes rttr) {
         // 파라미터는 BoardVO 타입으로 수집함
         // RedirectAttributes -> 데이터를 가지고 리다이렉트를 함
 
         log.info("boardVO : " + boardVO);
 
+        log.info("---------------------------------------------");
+        log.info("files : " + Arrays.toString(files)); // 배열로 나옴
+
+        upDownUtil.upload(files);
+/*
         Long bno = boardService.register(boardVO);
         // BoardMapper.XML 을 이용한 BoardMapper 인터페이스에서는 int insert() 를 정의함 (title, content, writer 추가)
         // BoardService 는 insert() 를 이용하여 register() 를 실행하고 새로운 BoardVO 인스턴스를 추가함
         // 이때 파라미터로 집어넣는 BoardVO 는 insert 후 자동으로 bno 가 생성되는데 그 새로운 long bno 를 읽어옴
 
+        log.info("bno : " + bno);
+
         rttr.addFlashAttribute("result", bno);
         // 어떤 번호로 새로운 글이 등록되었다는 것을 알림 -> attributeValue
         // /board/list 스크립트에 const rno = bno 으로 들어가지만 새로고침하면 날아감!
+*/
 
         return "redirect:/board/list"; // 리다이렉트를 할 때는 무조건!!! 앞에 redirect: 붙이기
     }

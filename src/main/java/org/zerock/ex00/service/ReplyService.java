@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zerock.ex00.domain.Criteria;
 import org.zerock.ex00.domain.ReplyVO;
 import org.zerock.ex00.mappers.ReplyMapper;
+import org.zerock.ex00.mappers.TimeMapper;
 
 import java.util.List;
 
@@ -17,6 +18,13 @@ import java.util.List;
 public class ReplyService {
     // Service 는 무조건!! Mapper 만 바라봐야 함
     private final ReplyMapper replyMapper;
+
+    private final TimeMapper timeMapper; // Transactional 실험을 위해 TimeMapper 불러옴
+
+    public void insertTwo(String str) {
+        timeMapper.insert1(str);
+        timeMapper.insert2(str);
+    }
 
     public Long register(ReplyVO replyVO) {
 
