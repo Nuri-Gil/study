@@ -73,4 +73,9 @@
     <update id="update">
         update tbl_board set title = #{title}, content = #{content}, updateDate = now() where bno = #{bno}
     </update>
+
+    <insert id="insertAttach">
+        insert into tbl_attach (bno, uuid, filename)
+        values (#{bno}, #{uuid}, #{fileName})
+    </insert>
 </mapper>

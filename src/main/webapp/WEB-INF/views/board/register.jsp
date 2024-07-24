@@ -18,7 +18,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Board Register</h6>
     </div>
     <div class="card-body">
-        <form action="/board/register" method="post" enctype="multipart/form-data">
+        <form id="registerForm" action="/board/register" method="post" enctype="multipart/form-data">
             <div class="form-group input-group input-group-lg">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Title</span>
@@ -41,11 +41,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Files</span>
                 </div>
-                <input type="file" name="files" class="form-control">
+                <input type="file" name="files" class="form-control" multiple>
             </div>
             <div class="form-group input-group input-group-lg">
                 <div>
-                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                    <button type="submit" class="btn btn-primary submitBtn">SUBMIT</button>
                 </div>
             </div>
         </form>
@@ -58,6 +58,26 @@
 
 <script>
 
+    const formObj = document.querySelector("#registerForm")
+    document.querySelector(".submitBtn").addEventListener("click", e => {
+        e.stopPropagation()
+        e.preventDefault()
+
+        // file suffix check
+        const fileReg = /(.*?)\.(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF|bmp|BMP)$/;
+        const fileInput = document.querySelector("input[name='files']");
+
+        const fileArr = fileInput.files
+        if (fileArr && fileArr.length > 0) {
+            for (const file of fileArr) {
+                // console.dir(file)
+                if (!file.name.match(fileReg))
+                    alert("첨부파일 확장자 다름")
+                    return;
+            }
+        }
+        formObj.submit()
+    }, false)
 </script>
 
 <%@include file="../includes/end.jsp" %>

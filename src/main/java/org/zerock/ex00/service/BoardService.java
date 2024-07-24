@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.zerock.ex00.domain.AttachVO;
 import org.zerock.ex00.domain.BoardVO;
 import org.zerock.ex00.domain.Criteria;
 import org.zerock.ex00.mappers.BoardMapper;
@@ -42,6 +43,18 @@ public class BoardService {
 
         int count = boardMapper.insert(boardVO);// BoardMapper 인터페이스에서 만든 int 값이 하나 나옴
 
+        // boardMapper.insert 에서는 <selectKey> 때문에 세팅된 bno 값이 나옴
+        Long bno = boardVO.getBno(); // insert 후 bno 값이 저장된 게시물의 bno
+
+        // AttachVO 에 bno 넣기
+        List<AttachVO> attachVOList = boardVO.getAttachVOList();
+
+        if (attachVOList != null && attachVOList.size() > 0) {
+            for (AttachVO attach : attachVOList) {
+                attach.setBno(bno);
+                boardMapper.insertAttach(attach); // 이 bno 세팅한 값을 가지고 insertAttach 실행
+            }
+        }
         return boardVO.getBno();
     }
 

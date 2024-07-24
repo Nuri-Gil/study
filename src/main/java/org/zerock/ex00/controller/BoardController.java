@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.ex00.domain.AttachVO;
 import org.zerock.ex00.domain.BoardVO;
 import org.zerock.ex00.domain.Criteria;
 import org.zerock.ex00.domain.PageDTO;
@@ -157,8 +158,10 @@ public class BoardController {
         log.info("---------------------------------------------");
         log.info("files : " + Arrays.toString(files)); // 배열로 나옴
 
-        upDownUtil.upload(files);
-/*
+        List<AttachVO> attachVOList = upDownUtil.upload(files);
+
+        boardVO.setAttachVOList(attachVOList); // 아래에서 등록 후 bno 받는 코드 이어서 실행
+
         Long bno = boardService.register(boardVO);
         // BoardMapper.XML 을 이용한 BoardMapper 인터페이스에서는 int insert() 를 정의함 (title, content, writer 추가)
         // BoardService 는 insert() 를 이용하여 register() 를 실행하고 새로운 BoardVO 인스턴스를 추가함
@@ -169,7 +172,7 @@ public class BoardController {
         rttr.addFlashAttribute("result", bno);
         // 어떤 번호로 새로운 글이 등록되었다는 것을 알림 -> attributeValue
         // /board/list 스크립트에 const rno = bno 으로 들어가지만 새로고침하면 날아감!
-*/
+
 
         return "redirect:/board/list"; // 리다이렉트를 할 때는 무조건!!! 앞에 redirect: 붙이기
     }

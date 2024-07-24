@@ -93,13 +93,15 @@ FROM tbl_reply;
 INSERT INTO tbl_reply (bno, replyText, replyer)
         (SELECT bno, replyText, replyText FROM tbl_reply);
 
-create table tbl_sample1(
-    s1  int auto_increment primary key ,
+create table tbl_sample1
+(
+    s1  int auto_increment primary key,
     col varchar(500)
 );
 
-create table tbl_sample2(
-    s2  int auto_increment primary key ,
+create table tbl_sample2
+(
+    s2  int auto_increment primary key,
     col varchar(50)
 );
 
@@ -108,5 +110,19 @@ from tbl_sample1;
 
 select *
 from tbl_sample2;
+
+-- 게시물 등록을 위한 DB 생성
+create table tbl_attach
+(
+    ano      int auto_increment primary key,
+    uuid     varchar(50)  null,
+    bno      int          not null,
+    filename varchar(500) not null
+);
+
+create index idx_attach
+    on tbl_attach (bno desc, ano asc);
+
+select * from tbl_attach order by bno desc;
 
 
