@@ -54,6 +54,17 @@
             <button type="submit" class="btn btn-warning btnModify">MODIFY</button>
         </div>
     </div>
+
+    <div class="attachList d-flex">
+        <c:if test="${vo.attachVOList != null && vo.attachVOList.size() > 0}">
+            <c:forEach items="${vo.attachVOList}" var="attach">
+                <c:if test="${attach.ano != null}">
+                    <div>${attach}</div>
+                </c:if>
+            </c:forEach>
+        </c:if>
+
+    </div>
 </div>
 
 <%-- 댓글 페이지 구현 & 카드 div 로 묶기--%>
