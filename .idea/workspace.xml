@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="010f5a72-e234-42c5-9056-094458a877b5" name="Changes" comment="0726">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/07.11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/07.11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721788940248</updated>
       <workItem from="1721788941819" duration="7115000" />
-      <workItem from="1721959161579" duration="6878000" />
+      <workItem from="1721959161579" duration="8834000" />
     </task>
     <task id="LOCAL-00001" summary="0726">
       <option name="closed" value="true" />
