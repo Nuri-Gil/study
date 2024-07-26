@@ -601,6 +601,5 @@ UpDownUtil 에서 업로드가 되면 AttachVO 가 반환될 수 있도록 구�
 게시물 객체 안에는 AttachVO 들이 여러개 있게 됨 -> 이것을 이용해서 DB 에 저장을 할 수 있음
 
 AttachVO List 를 BoardVO 에서 선언 -> BoardVO 를 사용하는 모든 Mapper 에서 쓸 수 있도록
-BoardMapper 에서는 AttachVO 를 받는 insertAttach 메서드 구현
--> BoardMapper XML 파일에서는 AttachVO 를 받는 insertAttach 메서드를 insert 의 id로 받아 SQL 문 처리
-?? 왜 작동이 안되지???
+BoardMapper 에서는 AttachVO 를 받는 메서드 구현
+-> BoardMapper XML 파일에서는 AttachVO 를 받는 메서드를 insert 의 id로 받아 SQL 문 처리

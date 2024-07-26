@@ -44,9 +44,9 @@
                 <input type="file" name="files" class="form-control" multiple>
             </div>
             <div class="form-group input-group input-group-lg">
-                <div>
-                    <button type="submit" class="btn btn-primary submitBtn">SUBMIT</button>
-                </div>
+                <%--<div>--%>
+                <button type="submit" class="btn btn-primary submitBtn">SUBMIT</button>
+                <%--</div>--%>
             </div>
         </form>
 
@@ -71,9 +71,10 @@
         if (fileArr && fileArr.length > 0) {
             for (const file of fileArr) {
                 // console.dir(file)
-                if (!file.name.match(fileReg))
+                if (!file.name.match(fileReg)) {
                     alert("첨부파일 확장자 다름")
                     return;
+                }
             }
         }
         formObj.submit()
