@@ -8,7 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.zerock.ex00.domain.AttachVO;
 import org.zerock.ex00.domain.BoardVO;
+import org.zerock.ex00.domain.Criteria;
 import org.zerock.ex00.mappers.BoardMapper;
 
 import java.util.List;
@@ -24,12 +26,34 @@ public class BoardService {
      */
     private final BoardMapper boardMapper;
 
+    // 파라미터로 Criteria 를 받아서 BoardVO 로 리턴하도록 설계
+    public List<BoardVO> getList(Criteria criteria) {
+        return boardMapper.getPage(criteria);
+    }
+
+    // 전체 데이터 개수를 구하는 메서드, 모델에 담을 것
+    public int getTotal(Criteria criteria) {
+        return boardMapper.getTotal(criteria);
+    }
+
+
+
     public Long register(BoardVO boardVO) {
         log.info("==========================" + boardVO);
 
         int count = boardMapper.insert(boardVO);// BoardMapper 인터페이스에서 만든 int 값이 하나 나옴
 
-        return boardVO.getBno();
+        Long bno = boardVO.getBno();
+        List<AttachVO> attachVOList = boardVO.getAttachVOList();
+
+        if (attachVOList != null && attachVOList.size() > 0) {
+            for (AttachVO attach : attachVOList) {
+                attach.setBno(bno);
+                boardMapper.insertAttach(attach);
+            }
+        }
+//        return boardVO.getBno()
+        return bno;
     }
 
     public List<BoardVO> list() {

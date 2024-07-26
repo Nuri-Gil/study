@@ -12,6 +12,7 @@ public class TodoDTO {
 
     private String title;
 
+    // 날짜를 가져오는 형식의 포맷 지정
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dueDate;
 }

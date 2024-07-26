@@ -12,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Log4j2
 public class TimeTests {
 
-    @Autowired(required = false)
+    @Autowired(required = false) // 스프링에 빈으로 등록이 안된 BEAN 의 존재를 검증하지 않겠다
     TimeMapper timeMapper;
 
     @Test

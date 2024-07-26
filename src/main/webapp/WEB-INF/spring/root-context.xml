@@ -3,12 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- 웹과 관련된 설정은 분리할 것 -->
     <!-- sample 패키지 내에서 @Component 를 빈으로 등록함 -->
     <context:component-scan base-package="org.zerock.ex00.sample"/>
     <!-- service 라는 새로운 패키지에서 @Component 인식을 하기 위해 -->
     <context:component-scan base-package="org.zerock.ex00.service"/>
+    <!-- aop 라는 새로운 패키지에서 @Component 인식을 하기 위해 -->
+    <context:component-scan base-package="org.zerock.ex00.aop"/>
 
     <bean name="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
@@ -19,15 +23,26 @@
         <property name="minimumIdle" value="2"/>
     </bean>
 
-    <bean name="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <constructor-arg ref="hikariConfig"/>
     </bean>
 
     <bean class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- classpath 는 resources 경로를 가르킴, 그 하위의 mappers 폴더 내 모든 xml 파일은 mybatis 에서 쓰는 xml 파일이다-->
         <property name="mapperLocations" value="classpath:mappers/*.xml"/>
     </bean>
 
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 스프링 마이바티스가 이 패키지를 조사해라 -->
     <mybatis-spring:scan base-package="org.zerock.ex00.mappers"/>
+
+    <!-- 자동으로 프록시를 만들것이라는 설정 -->
+    <aop:aspectj-autoproxy/>
+    <!-- tx -> AOP 설정만 걸어주면 별도의 코드 없이 Transaction 코드를 씌울 수 있음 -->
+    <tx:annotation-driven/>
 </beans>

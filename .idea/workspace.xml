@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0726" />
+=======
+    <list default="true" id="010f5a72-e234-42c5-9056-094458a877b5" name="Changes" comment="0726" />
+>>>>>>> self-study
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,37 +25,25 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ex00" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ex00" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
+        <projects_view />
       </state>
     </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Jsp File" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Nuri-Gil&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nuri-Gil/study.git&quot;,
+    &quot;accountId&quot;: &quot;a48cb8c7-3045-48a7-bbf0-1f9916f1b00d&quot;
+  }
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -60,9 +52,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2izMqQKiF42Chs7g03jwNWMDYS4" />
+  <component name="ProjectId" id="2jfrOIHkWm3AZ5U3INJYfcik3R4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -72,6 +65,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+<<<<<<< HEAD
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Gradle.BoardMapperTests.test1.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.BoardMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
@@ -89,15 +83,29 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/goott/Desktop/Spring/gugucoding/ex00&quot;,
+=======
+    &quot;Gradle.Build ex00.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.90.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+>>>>>>> self-study
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+<<<<<<< HEAD
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+=======
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
+>>>>>>> self-study
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -106,6 +114,7 @@
     ]
   }
 }</component>
+<<<<<<< HEAD
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\test\java\org\zerock\ex00\mappers" />
@@ -235,8 +244,11 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.89" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.89" ALTERNATIVE_JRE_ENABLED="false">
+=======
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+>>>>>>> self-study
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : org.zerock : ex00-1.0-SNAPSHOT.war (exploded)">
           <settings>
@@ -245,7 +257,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="8e6ca6de-3f97-4e87-84f3-3e09887ac274" />
+        <option name="BASE_DIRECTORY_NAME" value="b764ff82-0d3a-43cf-bc71-7a4abfb918a5" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -253,7 +265,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63633" />
+        <option name="DEBUG_PORT" value="60216" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -322,54 +334,46 @@
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Gradle.BoardMapperTests.testInsert" />
-      <item itemvalue="Gradle.BoardMapperTests.testSelect" />
-      <item itemvalue="Gradle.BoardMapperTests.testUpdate" />
-      <item itemvalue="Gradle.BoardServiceTests.testList" />
-      <item itemvalue="Gradle.BoardMapperTests.testList" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.89" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.BoardServiceTests.testList" />
-        <item itemvalue="Gradle.BoardMapperTests.testUpdate" />
-        <item itemvalue="Gradle.BoardMapperTests.testSelect" />
-        <item itemvalue="Gradle.BoardMapperTests.testInsert" />
-        <item itemvalue="Gradle.BoardMapperTests.testList" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="" />
-      <created>1720489143180</created>
+      <changelist id="010f5a72-e234-42c5-9056-094458a877b5" name="Changes" comment="" />
+      <created>1721788940248</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1720489143180</updated>
-      <workItem from="1720489144187" duration="16397000" />
-      <workItem from="1720510939821" duration="27000" />
-      <workItem from="1720510971401" duration="18000" />
-      <workItem from="1720511000066" duration="136000" />
-      <workItem from="1720511144844" duration="96000" />
-      <workItem from="1720511248331" duration="5287000" />
+      <updated>1721788940248</updated>
+      <workItem from="1721788941819" duration="7115000" />
+      <workItem from="1721959161579" duration="8834000" />
     </task>
+    <task id="LOCAL-00001" summary="0726">
+      <option name="closed" value="true" />
+      <created>1721961542611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721961542611</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+=======
+    <MESSAGE value="0724" />
+>>>>>>> self-study
     <MESSAGE value="0726" />
     <option name="LAST_COMMIT_MESSAGE" value="0726" />
   </component>

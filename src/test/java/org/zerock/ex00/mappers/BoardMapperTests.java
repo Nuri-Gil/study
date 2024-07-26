@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.zerock.ex00.domain.BoardVO;
+import org.zerock.ex00.domain.Criteria;
+
+import java.util.List;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -52,5 +55,18 @@ public class BoardMapperTests {
         int updateCount = boardMapper.update(boardVO);
 
         log.info("update : " + updateCount);
+    }
+
+    @Test
+    public void testPage() {
+        Criteria criteria = new Criteria(); // 기본값은 1, 10
+
+        criteria.setPageNum(2);
+        criteria.setTypes(new String[]{"T"});
+        criteria.setKeyword("n");
+
+        List<BoardVO> list = boardMapper.getPage(criteria);
+
+        list.forEach(boardVO -> log.info(boardVO));
     }
 }

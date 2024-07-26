@@ -3,6 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.ex00.mappers.TimeMapper">
+    <!-- TimeMapper 인터페이스에 들어갈 쿼리 문
+id -> 메서드 이름
+resultType 지정할 것 (String 이라면 java.lang.String 을 사용하거나 Aliases 에 내장된 string 으로 줘도 됨-->
+
     <select id="getTime2" resultType="string">
         SELECT NOW()
     </select>

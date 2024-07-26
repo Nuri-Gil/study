@@ -3,6 +3,7 @@ package org.zerock.ex00.domain;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data // Lombok Getter/Setter 사용을 위해
 public class BoardVO {
@@ -14,6 +15,10 @@ public class BoardVO {
 
     private LocalDateTime regDate; // 8 버전 이후는 Date 보다 LocalDateTime 을 사용
     private LocalDateTime updateDate;
+
+    private boolean delFlag; // 이거 언제 사용한거지....
+
+    private List<AttachVO> attachVOList;
 }
 /**
  * 이 곳에 데이터가 들어오면 처리하게 됨

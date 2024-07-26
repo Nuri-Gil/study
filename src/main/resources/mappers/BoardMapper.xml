@@ -4,15 +4,60 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.ex00.mappers.BoardMapper">
+
+    <!-- SQL 조각 -> 재사용을 위해 SQL 태그 넣기-->
+    <sql id="search">
+        <!-- collection : Criteria "types" 변수 (null 일 수 있음), item : 내용물 (t,c,w 등) -->
+        <if test="(types != null and keyword != null)"> <!-- null 이 아닐 경우에만 루프 돌도록-->
+            <!--bno 가 0 보다 크다는 조건이 있으므로 AND 사용, for 문 돌기 전에 OPEN -->
+            <foreach collection="types" item="type" open=" and ( " separator="OR" close=")">
+                <choose>
+                    <when test='type.equals("T")'> <!-- "" 대신 '' 사용하면 .equals 사용 가능-->
+                        title like concat('%',#{keyword},'%')
+                    </when>
+                    <when test='type.equals("C")'>
+                        content like concat('%',#{keyword},'%')
+                    </when>
+                    <when test='type.equals("W")'>
+                        writer like concat('%',#{keyword},'%')
+                    </when>
+                </choose>
+            </foreach>
+        </if>
+    </sql>
     <!-- 아래에서 실행하는 한 ROW 를 어떻게 처리할것인가 -> ResultType
        mybatis-config.xml 의  TypeAliases 에서 패키지 설정을 했으므로 단순히 BoardVO 라고 쓸 수 있음 -->
     <select id="getList" resultType="BoardVO">
         select * from tbl_board where bno > 0 order by bno desc
     </select>
 
+    <select id="getPage" resultType="BoardVO">
+        select * from tbl_board where bno > 0
+        <include refid="search"/>
+        order by bno desc
+        limit #{skip}, #{amount} <!-- MyBatis 가 getter 를 읽어옴 & Lombok @Data 로 getAmount 처리 -->
+
+        <!-- 만약 forEach 내 #{type} 으로 처리하고 types 에 값이 3개 들어온다면
+         select * from tbl_board where bno > 0
+         and ( ? OR ? OR ? )
+         order by bno desc limit ?, ? 출력됨-->
+
+        <!-- 만약 forEach 내 <choose> 로 값을 주고 types 에 TWC 가 온다면
+        select * from tbl_board where bno > 0
+        and ( title like ? OR content like ? OR writer like ? )
+        order by bno desc limit ?, ? 출력됨
+        MariaDB 에서 like 처리만 하면 해결 -> concat('%',#{keyword},'%') 사용 가능 -->
+    </select>
+
+    <select id="getTotal" resultType="int">
+        select count(bno) from tbl_board where bno > 0
+        <!-- 인덱스를 타기 위해?? -->
+        <include refid="search"/>
+    </select>
+
     <insert id="insert">
         <selectKey order="AFTER" keyProperty="bno" resultType="long"> <!-- 이 안에 어떤 SQL 문이 들어갈 것인가 -->
-            <!-- MariaDB 에는 LastInsertId 가 있음 -> 방금전에 들어간 AutoIncrement 된 값이 나옴
+            <!-- MariaDB 에는 LastInsertId 가 있음 -> 방금전에 들어간 AutoIncrement 된 값이 나옴 (Long 타입으로 받아다 쓸 목적)
             order AFTER -> SQL 문 수행 이후, keyProperty -> 값을 어디에 세팅할 것인가 -->
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -21,11 +66,42 @@
         insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
     </insert>
 
+<!--
     <select id="select" resultType="BoardVO">
         select * from tbl_board where bno = #{bno}
+    </select>
+-->
+
+    <resultMap id="boardMap" type="BoardVO">
+        <id property="bno" column="bno"/> <!-- Group By 의 역할 -->
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="writer" column="writer"/>
+        <result property="regDate" column="regDate"/>
+        <result property="updateDate" column="updateDate"/>
+        <collection property="attachVOList" resultMap="attachMap"/>
+    </resultMap>
+
+    <resultMap id="attachMap" type="AttachVO">
+        <result property="ano" column="ano"/>
+        <result property="bno" column="bno"/>
+        <result property="uuid" column="uuid"/>
+        <result property="fileName" column="fileName"/>
+    </resultMap>
+
+    <select id="select" resultMap="boardMap">
+        select *
+        from tbl_board b left outer join
+        tbl_attach ta on b.bno = ta.bno
+        where b.bno = #{bno}
     </select>
 
     <update id="update">
         update tbl_board set title = #{title}, content = #{content}, updateDate = now() where bno = #{bno}
     </update>
+
+    <insert id="insertAttach">
+        insert into tbl_attach (bno, uuid, filename)
+        values (#{bno}, #{uuid}, #{fileName})
+    </insert>
 </mapper>

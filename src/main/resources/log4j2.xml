@@ -12,6 +12,7 @@
     </Appenders>
 
     <!-- Logger 설정 -->
+    <!-- Log4JDBC 의 라이브러리 개발이 너무 옛날이라 요즘에는 직접 로그로 찍을 수 있도록 함 -->
     <Loggers>
         <Logger name="com.zaxxer" level="DEBUG" additivity="false">
             <AppenderRef ref="console"/>
