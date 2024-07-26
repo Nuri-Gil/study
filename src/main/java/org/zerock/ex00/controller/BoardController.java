@@ -201,9 +201,17 @@ public class BoardController {
     public String modify(
             @PathVariable(name = "bno") Long bno,
             BoardVO boardVO,
+            @RequestParam(value = "files", required = false) MultipartFile[] files,
+            // 파라미터로 업로드 되는 데이터를 받기, input 타입의 이름은 files, 없을 수 있으므로 required false
             RedirectAttributes rttr// 제목이나 내용이 변경되므로 수집해야 함
     ) {
         boardVO.setBno(bno); // @PathVariable 에 있는 번호를 다시 한번 세팅
+        // 파일 추가 코드
+        List<AttachVO> attachVOList = upDownUtil.upload(files);
+
+        if (attachVOList != null && attachVOList.size() > 0) { // 파일 유무 필터링
+            boardVO.setAttachVOList(attachVOList);
+        }
 
         log.info("boardVO : " + boardVO);
 

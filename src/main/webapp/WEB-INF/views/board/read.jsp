@@ -60,38 +60,50 @@
         <c:if test="${vo.attachVOList != null && vo.attachVOList.size() > 0}">
             <c:forEach items="${vo.attachVOList}" var="attach">
                 <c:if test="${attach.ano != null}">
-                    <div>${attach}</div>
+                    <div>
+                            <%-- ${attach.fullName} &lt;%&ndash;AttachVo 에서 getFullName 만들고 MyBatis 가 자동으로 변수이름 가져옴 -> 이미지 태그가 들어가는것으로 변경 --%>
+                        <a href="/files/${attach.fullName}" target="_blank">
+                            <img src="/files/s_${attach.fullName}"/> <%-- 이미지 소스 앞에 s_ 넣어 섬네일 불러오기--%>
+                        </a>
+                    </div>
                 </c:if>
             </c:forEach>
         </c:if>
-
     </div>
 </div>
 
 <%-- 댓글 페이지 구현 & 카드 div 로 묶기--%>
 <div class="card shadow mb-4">
-    <ul class="list-group replyList">
-        <%-- li 하나씩이 각각의 댓글, li 를 탬플릿처럼 사용해보기 --%>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            Cras justo odio
-            <span class="badge badge-primary badge-pill">14</span>
-        </li>
-    </ul>
-    <%-- 댓글 페이지 리스트 번호 --%>
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active">
-            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-
+    <div class="card-header py-3">
+        <button class="btn btn-info addReplyBtn">Add Reply</button>
+    </div>
+    <div class="card-body">
+        <div>
+            <ul class="list-group replyList">
+                <%-- li 하나씩이 각각의 댓글, li 를 탬플릿처럼 사용해보기 --%>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Cras justo odio
+                    <span class="badge badge-primary badge-pill">14</span>
+                </li>
+            </ul>
+        </div>
+        <%-- 댓글 페이지 리스트 번호 --%>
+        <div class="mt-3">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <%-- 댓글 등록용 MODAL 창 추가--%>
 <div class="modal" id="replyModal" tabindex="-1" role="dialog">
@@ -327,6 +339,8 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
         }
         registerReply(replyObj).then(result => {
             replyAddModal.hide()
+            replyTextInput.value = ''
+            replyerInput.value = ''
         });
 
     }, false);
@@ -357,8 +371,11 @@ document.querySelector(".btnModify").addEventListener("click", (e) => {
             replyAddModal.hide()
             getList(currentPage) // 수정이 되고 원래 페이지를 유지하기 위해 currentPage 파라미터!
         });
-    });
+    }, false);
 
+    document.querySelector(".addReplyBtn").addEventListener("click", e => {
+        replyAddModal.show()
+    }, false);
 </script>
 
 <%@include file="../includes/end.jsp" %>
