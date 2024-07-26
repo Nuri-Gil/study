@@ -55,6 +55,7 @@
         </div>
     </div>
 
+    <%-- 버튼 밑에 AttachVO 보일 수 있도록 --%>
     <div class="attachList d-flex">
         <c:if test="${vo.attachVOList != null && vo.attachVOList.size() > 0}">
             <c:forEach items="${vo.attachVOList}" var="attach">
