@@ -28,4 +28,5 @@
     <!-- Board View 파일을 읽을 수 있도록 경로 매칭 -->
     <!-- 일반적으로는 resources 경로로 들어오는데 이렇게 들어오면 static 폴더에 있는 내용을 서비스 할것이다 -->
     <mvc:resources mapping="/resources/**" location="classpath:/static/"/> <!-- 마지막에 / 넣을 것 -->
+    <mvc:resources mapping="/files/**" location="file:///C:/upload/"/> <!-- files 라는 이름으로 시작하고 뒤에 파일 이름을 주면 뒤의 폴더의 내용을 서비스 함-->
 </beans>

@@ -91,7 +91,7 @@ SELECT *
 FROM tbl_reply;
 
 INSERT INTO tbl_reply (bno, replyText, replyer)
-        (SELECT bno, replyText, replyText FROM tbl_reply);
+    (SELECT bno, replyText, replyText FROM tbl_reply);
 
 create table tbl_sample1
 (
@@ -123,6 +123,11 @@ create table tbl_attach
 create index idx_attach
     on tbl_attach (bno desc, ano asc);
 
-select * from tbl_attach order by bno desc;
+select *
+from tbl_attach
+order by bno desc;
 
-
+select *
+from tbl_board b left outer join
+     tbl_attach ta on b.bno = ta.bno
+where b.bno = 1027; -- 마지막 여러개 파일 올린 글 bno
