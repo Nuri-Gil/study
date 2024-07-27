@@ -23,4 +23,11 @@ public class JDBCTests {
 
         connection.close();
     }
+
+    @Test
+    public void testRegExp() {
+        String suffix = "jpeg";
+        String regExp = "^(jpg|jpeg|JPG|JPEG|png|PNG|gif|GIF|bmp|BMP)";
+        System.out.println(suffix.matches(regExp));
+    }
 }

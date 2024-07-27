@@ -1,5 +1,6 @@
 package org.zerock.ex00.mappers;
 
+import org.zerock.ex00.domain.AttachVO;
 import org.zerock.ex00.domain.BoardVO;
 import org.zerock.ex00.domain.Criteria;
 
@@ -20,4 +21,6 @@ public interface BoardMapper {
     BoardVO select(long bno);
 
     int update(BoardVO boardVO);
+
+    int insertAttach(AttachVO attachVO);
 }

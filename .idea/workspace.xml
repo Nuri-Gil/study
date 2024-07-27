@@ -4,22 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0719 공부">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/aop/LogAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" afterDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0723 공부">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/AttachVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eea9a4d1-c1b8-4ae3-baa4-ee6cee09f555.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/eea9a4d1-c1b8-4ae3-baa4-ee6cee09f555.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/07.11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/07.11.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/ReplyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/TimeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/TimeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/ReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/ReplyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/BoardVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/BoardVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/sample/JDBCTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/sample/JDBCTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +105,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Nuri-Gil/study.git&quot;,
-    &quot;accountId&quot;: &quot;a48cb8c7-3045-48a7-bbf0-1f9916f1b00d&quot;
+    &quot;accountId&quot;: &quot;16931b83-0ace-4963-ae27-b8ff19ba8cb4&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -125,53 +126,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.BoardMapperTests.test1.executor": "Run",
-    "Gradle.BoardMapperTests.testInsert.executor": "Run",
-    "Gradle.BoardMapperTests.testList.executor": "Run",
-    "Gradle.BoardMapperTests.testPage.executor": "Run",
-    "Gradle.BoardMapperTests.testSelect.executor": "Run",
-    "Gradle.BoardMapperTests.testUpdate.executor": "Run",
-    "Gradle.BoardServiceTests.testList.executor": "Run",
-    "Gradle.Build ex00.executor": "Run",
-    "Gradle.DITests.testCon.executor": "Run",
-    "Gradle.JDBCTests.testConnection.executor": "Run",
-    "Gradle.ReplyMapperTests.testDelete.executor": "Run",
-    "Gradle.ReplyMapperTests.testGetList.executor": "Run",
-    "Gradle.ReplyMapperTests.testGetTotal.executor": "Run",
-    "Gradle.ReplyMapperTests.testInsert.executor": "Run",
-    "Gradle.ReplyMapperTests.testSelect.executor": "Run",
-    "Gradle.ReplyMapperTests.testUpdate.executor": "Run",
-    "Gradle.TimeTests.test1.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.89.executor": "Run",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-11",
-    "js.last.introduce.type": "CONST",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/goott/Desktop/React/react-app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.BoardMapperTests.test1.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardMapperTests.testList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardMapperTests.testPage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardMapperTests.testSelect.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BoardServiceTests.testList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build ex00.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.DITests.testCon.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JDBCTests.testConnection.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JDBCTests.testRegExp.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testGetList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testGetTotal.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testSelect.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ReplyMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TimeTests.test1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.89.executor&quot;: &quot;Run&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Download/part6/part6&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00" />
@@ -251,6 +254,30 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.zerock.ex00.sample.JDBCTests.testConnection&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="JDBCTests.testRegExp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.sample.JDBCTests.testRegExp&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -350,6 +377,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.JDBCTests.testRegExp" />
       <item itemvalue="Gradle.BoardMapperTests.test1" />
       <item itemvalue="Gradle.DITests.testCon" />
       <item itemvalue="Gradle.JDBCTests.testConnection" />
@@ -357,6 +385,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.JDBCTests.testRegExp" />
         <item itemvalue="Gradle.DITests.testCon" />
         <item itemvalue="Gradle.JDBCTests.testConnection" />
         <item itemvalue="Gradle.BoardMapperTests.test1" />
@@ -405,7 +434,8 @@
       <workItem from="1721639644571" duration="17000" />
       <workItem from="1721639740642" duration="244000" />
       <workItem from="1721712869806" duration="13017000" />
-      <workItem from="1721739355162" duration="3872000" />
+      <workItem from="1721739355162" duration="14107000" />
+      <workItem from="1721924834406" duration="2844000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -535,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721714695605</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="0723 공부">
+      <option name="closed" value="true" />
+      <created>1721744868137</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721744868137</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +618,8 @@
     <MESSAGE value="0722" />
     <MESSAGE value="0718 공부" />
     <MESSAGE value="0719 공부" />
-    <option name="LAST_COMMIT_MESSAGE" value="0719 공부" />
+    <MESSAGE value="0723 공부" />
+    <option name="LAST_COMMIT_MESSAGE" value="0723 공부" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
