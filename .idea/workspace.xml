@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eea9a4d1-c1b8-4ae3-baa4-ee6cee09f555.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/07.11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/07.11.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/AttachVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/domain/AttachVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/servlet-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +77,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="self-study" />
         <entry key="$PROJECT_DIR$/ex00" value="self-study" />
       </map>
     </option>
@@ -124,55 +117,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.BoardMapperTests.test1.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testList.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testPage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testSelect.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.BoardServiceTests.testList.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build ex00.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DITests.testCon.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JDBCTests.testConnection.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JDBCTests.testRegExp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testDelete.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testGetList.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testGetTotal.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testInsert.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testSelect.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ReplyMapperTests.testUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TimeTests.test1.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.89.executor&quot;: &quot;Run&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Download/part6/part6&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.BoardMapperTests.test1.executor": "Run",
+    "Gradle.BoardMapperTests.testInsert.executor": "Run",
+    "Gradle.BoardMapperTests.testList.executor": "Run",
+    "Gradle.BoardMapperTests.testPage.executor": "Run",
+    "Gradle.BoardMapperTests.testSelect.executor": "Run",
+    "Gradle.BoardMapperTests.testUpdate.executor": "Run",
+    "Gradle.BoardServiceTests.testList.executor": "Run",
+    "Gradle.Build ex00.executor": "Run",
+    "Gradle.DITests.testCon.executor": "Run",
+    "Gradle.JDBCTests.testConnection.executor": "Run",
+    "Gradle.JDBCTests.testRegExp.executor": "Run",
+    "Gradle.ReplyMapperTests.testDelete.executor": "Run",
+    "Gradle.ReplyMapperTests.testGetList.executor": "Run",
+    "Gradle.ReplyMapperTests.testGetTotal.executor": "Run",
+    "Gradle.ReplyMapperTests.testInsert.executor": "Run",
+    "Gradle.ReplyMapperTests.testSelect.executor": "Run",
+    "Gradle.ReplyMapperTests.testUpdate.executor": "Run",
+    "Gradle.TimeTests.test1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.89.executor": "Run",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "HomeStudy",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "js.last.introduce.type": "CONST",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/klarnuri/Desktop/part6",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00" />
@@ -434,6 +427,8 @@
       <workItem from="1721712869806" duration="13017000" />
       <workItem from="1721739355162" duration="14107000" />
       <workItem from="1721924834406" duration="2844000" />
+      <workItem from="1722100707540" duration="29000" />
+      <workItem from="1722100752420" duration="10459000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -571,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721744868137</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="0728 집">
+      <option name="closed" value="true" />
+      <created>1722097691153</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722097691153</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +620,8 @@
     <MESSAGE value="0718 공부" />
     <MESSAGE value="0719 공부" />
     <MESSAGE value="0723 공부" />
-    <option name="LAST_COMMIT_MESSAGE" value="0723 공부" />
+    <MESSAGE value="0728 집" />
+    <option name="LAST_COMMIT_MESSAGE" value="0728 집" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -69,7 +69,20 @@ public class UpDownUtil {
             } catch (Exception e) {
                 log.error(e.getMessage());
             }
-        }
+        } // 업로드 FOR 종료
         return list;
+    }
+
+    public void deleteFiles(String[] fileNames) {
+        if (fileNames == null || fileNames.length == 0) { // 실수로 && 사용하면 처리 중단이 되지 않아 예외 터짐
+            return;
+        }
+        for (String fileName : fileNames) {
+            File originalFile = new File(UPLOAD + File.separator + fileName);
+            File thumbFile = new File(UPLOAD + File.separator + "s_" + fileName);
+            // 경로가 들어가므로 File.separator 가 들어감 + fullNames 에서 받는 각각의 파일 이름
+            originalFile.delete();
+            thumbFile.delete();
+        } //end FOR
     }
 }

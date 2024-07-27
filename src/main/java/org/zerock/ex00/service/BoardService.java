@@ -66,12 +66,20 @@ public class BoardService {
         return boardMapper.select(bno);
     }
 
-    public boolean modify(BoardVO vo) {
+    public boolean modify(BoardVO vo, Long[] attachFileNums) { // anos 값 받기
         int count = boardMapper.update(vo);// modify 가 되었는지 여부 (성공 1, 실패 -1)
+
         List<AttachVO> attachVOList = vo.getAttachVOList();
 
+        // ano 삭제 구현
+        if (attachFileNums != null && attachFileNums.length > 0) {
+            // for (AttachVO attach : attachVOList) {} // 하나씩 삭제하는 경우
+            // 한번에 BoardMapper 에서 삭제 처리
+            boardMapper.deleteAttachFiles(attachFileNums);
+        }
+
         // 빈 리스트가 아니고 첨부파일이 1개 이상이고 업데이트 결과가 1로 나왔을 때 필터링
-        if (attachVOList != null && attachVOList.size() > 0 && count == 1) {
+        if (attachVOList != null && attachVOList.size() > 0 && count == 1) { // 업데이트 되었는지 체크하는 로직 추가    
             for (AttachVO attach : attachVOList) {
                 attach.setBno(vo.getBno());
                 boardMapper.insertAttach(attach);

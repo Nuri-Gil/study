@@ -97,11 +97,26 @@
     </select>
 
     <update id="update">
-        update tbl_board set title = #{title}, content = #{content}, updateDate = now() where bno = #{bno}
+        update tbl_board
+        set
+        title = #{title},
+        content = #{content},
+        delFlag = #{delFlag},
+        updateDate = now()
+        where bno = #{bno}
     </update>
 
     <insert id="insertAttach">
         insert into tbl_attach (bno, uuid, filename)
         values (#{bno}, #{uuid}, #{fileName})
     </insert>
+
+    <delete id="deleteAttachFiles">
+        delete from tbl_attach
+        <where>
+            <foreach collection="anos" item="ano" open="ano in (" close=")" separator=",">
+                #{ano}
+            </foreach>
+        </where>
+    </delete>
 </mapper>

@@ -1,4 +1,3 @@
-
 package org.zerock.ex00.controller;
 
 import lombok.RequiredArgsConstructor;
@@ -181,17 +180,25 @@ public class BoardController {
     @PostMapping("/remove/{bno}")
     public String remove(
             @PathVariable(name = "bno") Long bno,
+            // modify 처럼 삭제할 ano, fullName 값 받기
+            @RequestParam(value = "anos" , required = false) Long[] anos,
+            @RequestParam(value = "fullNames", required = false) String[] fullNames,
             RedirectAttributes rttr // 삭제후 목록 페이지로 이동하고 모달창에 메세지를 넣기 위해서는 addFlashAttribute 가 필요함
     ) {
         BoardVO boardVO = new BoardVO();
         boardVO.setBno(bno);
         boardVO.setTitle("해당 글은 삭제되었습니다");
         boardVO.setContent("해당 글은 삭제되었습니다");
+        boardVO.setDelFlag(true);
         // boardVO.setWriter("unknown"); // Writer 는 수정 불가이므로 지금은 없이 진행
 
         log.info("boardVO : " + boardVO);
 
-        boardService.modify(boardVO); // remove 가 아니라 modify 를 호출 (soft-delete)
+        // modify 에 필요한 anos 값 파라미터로 받았으니까 전달
+        boardService.modify(boardVO, anos); // remove 가 아니라 modify 를 호출 (soft-delete)
+
+        // 파일 삭제
+        upDownUtil.deleteFiles(fullNames);
 
         rttr.addFlashAttribute("result", boardVO.getBno());
 
@@ -203,6 +210,8 @@ public class BoardController {
             @PathVariable(name = "bno") Long bno,
             BoardVO boardVO,
             @RequestParam(value = "files", required = false) MultipartFile[] files,
+            @RequestParam(value = "anos", required = false) Long[] anos,
+            @RequestParam(value = "fullNames", required = false) String[] fullNames, // 대소문자 주의!!
             // 파라미터로 업로드 되는 데이터를 받기, input 타입의 이름은 files, 없을 수 있으므로 required false
             RedirectAttributes rttr// 제목이나 내용이 변경되므로 수집해야 함
     ) {
@@ -216,7 +225,11 @@ public class BoardController {
 
         log.info("boardVO : " + boardVO);
 
-        boardService.modify(boardVO);
+        boardService.modify(boardVO, anos); // modify 가 Long[] 을 파라미터로 받음, anos 추가
+
+        // 파일 삭제
+        // DB 에서 ano 삭제
+        upDownUtil.deleteFiles(fullNames);
 
         rttr.addFlashAttribute("result", boardVO.getBno());
 

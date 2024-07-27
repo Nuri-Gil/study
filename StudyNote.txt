@@ -658,3 +658,72 @@ upDownUtil 에서 파일을 올리면 attachVO List 로 받음 -> 파일 유무 
 AttachVOList 가 호출이 되었다는 것은 이미 파일이 브라우저에 업로드가 되었음을 뜻함
 그 이후에 boardService.modify 에서는 boardVO 안에 있는 AttachVOList 를 이용해서 DB 에 추가를 해줘야 함
 BoardService 에서는 AttachVOList 를 끄집어 내고 boardMapper.insertAttach 를 하는 코드가 있음 (등록과 똑같게)
+
+-- 게시물 / 첨부 파일 수정 - 화면 처리 (어려움!!!!!)
+게시물의 첨부파일 A, B, C, D 가 있을 때 C, D, 를 지우고 E 를 추가하는 경우
+-> C 와 D 의 ano, fullName 을 받아서 submit() 이 일어날 때 hidden 태그로 만들어서 전송하기 (파일 하나당 2개씩)
+-> 이 정보를 가지고 DB, upload 폴더에서 삭제하기
+
+화면에 이벤트를 걸어보자 (modify.jsp)
+버튼을 클릭할 때 받아야 하는 정보 -> ano, fullName
+버튼에 data-ano, data-fullname 을 선언해서 받기 (html 의 data- 속성은 화면에서 처리할 때 다 소문자로 바뀜!)
+
+버튼을 클릭할 때 처리할 것들은?
+attachList 라는 div 클래스에서 클릭 이벤트를 주기 -> 이벤트를 발생시키는 타겟의 태그이름이 "BUTTON" 이 아닌지 필터링
+target 에서 원하는 값 ano, fullName 뽑기 -> target 은 클릭된 요소, 즉 버튼 태그인데 그 안에 data-ano, data-fullname 이 정의되어 있음
+이 data- 태그들을 읽어올 수 있도록 target.getAttribute() 를 이용해서 변수로 담기
+ano, fullName 을 이용해 화면상에서 지우기 (div 자체를 지우기, 실제 처리는 modify 버튼이 눌러졌을 때!!!!)
+클릭된 버튼을 감싸는 div 를 삭제하려면? -> closest 사용 (target.closest("div").remove())
+실제로 서버에는 아무 작업을 하지 않았으므로 modify 버튼 이벤트 전까지는 새로고침을 하면 다시 돌아옴
+이 값들을 지웠는데 지워진 값을 보관해야한다 -> 어디다 할 것인가? -> form 태그 안에 저장해보자 (.deleteImages)
+.deleteImages 안에는 삭제해야하는 이미지들을 보관할 것인데 hidden 태그로 보관함
+주의!!!!
+form 태그 안에 hidden 태그를 넣어 바로 붙이면? input 태그의 내용도 없어짐!!! -> form 태그 안에 innerHTML 을 넣지 말고 안의 다른 곳에 태그를 줘야 함
+ano 와 fullName 이 존재하는지 필터 걸고 -> hidden 태그 작성용 빈 문자열 만듬
+각각의 HTML 문 안에 input 태그를 줌 (hidden 타입, name 배열로 받을 이름, value 에는 script 변수 ano, fullName)
+클릭된 타겟을 감싸는 div 클래스가 없어지고 그 안의 ano, fullName 은 .deleteImages 클래스를 가진 태그 내부에 hidden 태그용으로 만든 쿼리문이 들어감
+실제로 버튼을 누르면 <div class="deleteImage"> 내부에 ano, fullName 값을 가진 hidden 타입의 input 태그가 생성됨
+
+-- 수정시 서버에서 DB와 파일 처리
+modify 버튼 클릭에 아직 DB 작업을 걸지 않았으므로 X 버튼으로 div 를 지우고 modify 버튼을 누르면 POST 방식으로 보낸 데이터가 보임
+보낸 데이터에는 anos, fullNames 가 전송된 것이 보임 -> BoardController 에서 이 파라미터 2개를 더 받아서 처리해야함
+BoardController 의 modify POST 에서 @RequestParam 으로 위 2가지 파라미터를 받음, 타입은 배열이므로 Long[], String[]!!
+upload 폴더에서 fullNames 파일 이름을 찾아 삭제하고 DB 에서 ano 삭제하기
+UpDownUtil 에서 이 이름을 가지고 삭제하는 기능을 만들어 주기
+fullNames 배열을 받아 원본과 섬네일을 지워야 함 -> 이 기능을 modify POST 에서 boardService.modify 가 완료된 뒤 실행되도록 추가
+
+원래 BoardService.modify() 에서는 BoardVO 만 받도록 설계가 되어있음
+BoardService 에 ano 를 지우는 메서드만 추가하면 되는가???? -> Transaction 처리가 되어있으므로 불가능
+지울것, 추가할것, 업데이트할것 -> 이 모든것이 한 Transaction 으로 묶여서 힘듬
+Long[] 배열로 anos 를 받아다가 처리하는것이 더 효율적임
+BoardService.modify 에서 Long[] 을 받으면 BoardController 의 remove, modify 에서 파라미터 추가해서 수정할것
+BoardService.modify 는 이제 삭제하는 기능도 구현해야 함 -> 클래스에 Transaction 선언 되었으므로 별도로 수정 안해도 됨
+BoardService.modify 에서 ano 삭제 구현 -> 첨부파일 ano 값이 있는지 필터링 -> 삭제 처리
+삭제 처리는 for 문에서 하나씩 처리할 수도 있지만 한번에 BoardMapper 에서 삭제 처리
+
+BoardMapper 에서 설계 -> 삭제 후 결과를 따로 띄울 필요 없으므로 void 설계
+@Param("ano") 를 사용해서 BoardController 에서 @RequestParam 으로 들어오는 파라미터의 이름을 이중체크 함
+BoardMapper.xml 에 delete 추가
+delete 문 에서 WHERE 부분은 동적 SQL 을 사용할 수 있음
+collection="anos" -> BoardMapper 에서 전달되는 anos 라는 컬렉션 (배열같이)
+item="ano" -> anos 컬렉션 안의 ano 값을 순회함 (반복에서 현재 항목을 나타내는 변수의 이름을 지정하는 속성)
+open="ano in (" -> 반복문의 시작 부분에서 사용할 문자열을 지정
+close=")"
+separator=","
+
+===============
+alter table tbl_board add column  delflag boolean default false;
+이거랑 delFlag 언제 쓰였는지 확인 다시 할것
+
+-- 게시물의 삭제와 첨부파일
+게시물의 삭제는 soft-delete (삭제 플래그 값만 바꿈)
+첨부파일은 DB 와 업로드 폴더에 있음 -> 실제 삭제
+수정에서는 필요없는 파일을 삭제했는데 그 방법을 이용할 것
+수정 화면에서는 삭제 기능이 있음 -> 수정시 파일들은 각각 ano, fullName 을 보내고 있음
+어렵진 않으나 화면에서 처리해야 하는 부분이 있음
+modify 처럼 삭제버튼을 누를 때 ano, fullName 데이터를 form 태그 내부 deleteImages 에 hidden 으로 보내기
+
+-- 삭제 구현
+서버쪽은 BoardController 에서
+modify 처럼 anos, fullNames 를 파라미터로 받아야 함
+삭제의 경우는 새로 추가되는 파일은 없으므로 MultipartFile 은 필요 없음

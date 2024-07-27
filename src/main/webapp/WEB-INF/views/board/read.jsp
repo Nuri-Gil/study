@@ -52,7 +52,9 @@
         <div class="input-group input-group-lg">
             <%-- 버튼에는 스크립트를 통해 이벤트를 걸어줄 것임 --%>
             <button type="submit" class="btn btn-info btnList">LIST</button>
-            <button type="submit" class="btn btn-warning btnModify">MODIFY</button>
+                <c:if test="${!vo.delFlag}">
+                    <button type="button" class="btn btn-warning btnModify" >MODIFY</button>
+                </c:if>
         </div>
     </div>
 

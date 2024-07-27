@@ -63,6 +63,9 @@
                 <button type="submit" class="btn btn-warning btnModify">MODIFY</button>
                 <button type="submit" class="btn btn-danger btnRemove">REMOVE</button>
             </div>
+
+            <div class="deleteImages">
+            </div>
         </form>
     </div>
 </div>
@@ -75,7 +78,11 @@
                 <c:if test="${attach.ano != null}">
                     <div class="d-flex flex-column m-1">
                         <img src="/files/s_${attach.fullName}"/>
-                        <button class="btn btn-danger removeImgBtn">X</button>
+                        <button class="btn btn-danger removeImgBtn"
+                                data-ano="${attach.ano}"
+                                data-fullname="${attach.fullName}"
+                        >X
+                        </button>
                     </div>
                 </c:if>
             </c:forEach>
@@ -128,11 +135,53 @@
         e.preventDefault()
         e.stopPropagation()
 
-        actionForm.action = `/board/remove/\${bno}`
+        // 삭제해야하는 파일들을 hidden 태그로 만들기 (modify 처럼)
+        const fileArr = document.querySelectorAll(".attachList button"); // attachList 하위 버튼 모두
+
+        console.log(fileArr)
+
+        if (fileArr && fileArr.length > 0) {
+            let str = ''
+            for (const btn of fileArr) {
+                const ano = btn.getAttribute("data-ano");
+                const fullName = btn.getAttribute("data-fullname"); // 대소문자 조심
+
+                str += `<input type="hidden" name='anos' value='\${ano}'>`
+                str += `<input type="hidden" name='fullNames' value='\${fullName}'>`
+            } // end FOR
+            document.querySelector(".deleteImages").innerHTML += str
+        } // end IF
+
+        actionForm.action = `/board/remove/\${bno}`;
         actionForm.method = 'post'
         actionForm.submit()
     }, false); /*버블링 핸들러 false*/
 
+    document.querySelector(".attachList").addEventListener("click", e => {
+        const target = e.target // 타겟은 클릭한 요소!! 즉 버튼
+        /* 태그 이름이 BUTTON 이어야만 함, 버튼이 아니라면 끝내야 함 (지금은 button 이므로 동작) */
+        if (target.tagName !== 'BUTTON') {
+            return
+        }
+
+        const ano = target.getAttribute("data-ano");
+        const fullName = target.getAttribute("data-fullname"); // 대소문자 조심
+
+        // console.log("ano : ", ano, "fullName : ", fullName)
+
+        if (ano && fullName) {
+            let str = '' // hidden 태그 작성용 문자열
+            str += `<input type="hidden" name='anos' value='\${ano}'>`
+            str += `<input type="hidden" name='fullNames' value='\${fullName}'>`
+
+            console.log("ano : ", ano, "fullName : ", fullName)
+            target.closest("div").remove();
+
+            document.querySelector(".deleteImages").innerHTML += str // 이미지 삭제를 누르면 hidden 태그 2개가 생김
+        }
+
+
+    }, false);
 </script>
 
 <%@include file="../includes/end.jsp" %>
