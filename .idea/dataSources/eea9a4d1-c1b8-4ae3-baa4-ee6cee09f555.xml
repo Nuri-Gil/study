@@ -1221,85 +1221,86 @@ springdb|schema||springdbuser|localhost|UPDATE|G</Grants>
     </schema>
     <schema id="509" parent="1" name="springdb">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-07-23.17:00:40</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-07-23.13:58:09</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="510" parent="1" name="springdbuser">
       <Host>localhost</Host>
     </user>
-    <table id="511" parent="509" name="tbl_attach">
+    <table id="511" parent="509" name="tbl_board">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="512" parent="509" name="tbl_board">
+    <table id="512" parent="509" name="tbl_reply">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="513" parent="509" name="tbl_reply">
+    <table id="513" parent="509" name="tbl_sample1">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="514" parent="509" name="tbl_sample1">
+    <table id="514" parent="509" name="tbl_sample2">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="515" parent="509" name="tbl_sample2">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
-    <column id="516" parent="511" name="ano">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="515" parent="511" name="bno">
+      <AutoIncrement>5121</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="517" parent="511" name="uuid">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="516" parent="511" name="title">
+      <DasType>varchar(500)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="518" parent="511" name="bno">
-      <DasType>int(11)|0s</DasType>
+    <column id="517" parent="511" name="content">
+      <DasType>varchar(2000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="519" parent="511" name="filename">
-      <DasType>varchar(500)|0s</DasType>
+    <column id="518" parent="511" name="writer">
+      <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="520" parent="511" name="PRIMARY">
-      <ColNames>ano</ColNames>
+    <column id="519" parent="511" name="regDate">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <Position>5</Position>
+    </column>
+    <column id="520" parent="511" name="updateDate">
+      <DasType>timestamp|0s</DasType>
+      <DefaultExpression>current_timestamp()</DefaultExpression>
+      <Position>6</Position>
+    </column>
+    <index id="521" parent="511" name="PRIMARY">
+      <ColNames>bno</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
-    </index>
-    <index id="521" parent="511" name="idx_attach">
-      <ColNames>bno
-ano</ColNames>
-      <ReverseColNames>bno</ReverseColNames>
-      <Type>btree</Type>
     </index>
     <key id="522" parent="511" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="523" parent="512" name="bno">
-      <AutoIncrement>5121</AutoIncrement>
+    <column id="523" parent="512" name="rno">
+      <AutoIncrement>1019</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="524" parent="512" name="title">
-      <DasType>varchar(500)|0s</DasType>
+    <column id="524" parent="512" name="bno">
+      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="525" parent="512" name="content">
+    <column id="525" parent="512" name="replyText">
       <DasType>varchar(2000)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="526" parent="512" name="writer">
+    <column id="526" parent="512" name="replyer">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
@@ -1314,104 +1315,63 @@ ano</ColNames>
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <Position>6</Position>
     </column>
-    <index id="529" parent="512" name="PRIMARY">
-      <ColNames>bno</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="530" parent="512" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="531" parent="513" name="rno">
-      <AutoIncrement>1019</AutoIncrement>
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="532" parent="513" name="bno">
-      <DasType>int(11)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="533" parent="513" name="replyText">
-      <DasType>varchar(2000)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="534" parent="513" name="replyer">
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="535" parent="513" name="regDate">
-      <DasType>timestamp|0s</DasType>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <Position>5</Position>
-    </column>
-    <column id="536" parent="513" name="updateDate">
-      <DasType>timestamp|0s</DasType>
-      <DefaultExpression>current_timestamp()</DefaultExpression>
-      <Position>6</Position>
-    </column>
-    <foreign-key id="537" parent="513" name="fk_reply_board">
+    <foreign-key id="529" parent="512" name="fk_reply_board">
       <ColNames>bno</ColNames>
       <RefColNames>bno</RefColNames>
       <RefTableName>tbl_board</RefTableName>
     </foreign-key>
-    <index id="538" parent="513" name="PRIMARY">
+    <index id="530" parent="512" name="PRIMARY">
       <ColNames>rno</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="539" parent="513" name="idx_reply">
+    <index id="531" parent="512" name="idx_reply">
       <ColNames>bno
 rno</ColNames>
       <ReverseColNames>bno</ReverseColNames>
       <Type>btree</Type>
     </index>
-    <key id="540" parent="513" name="PRIMARY">
+    <key id="532" parent="512" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="541" parent="514" name="s1">
-      <AutoIncrement>6</AutoIncrement>
+    <column id="533" parent="513" name="s1">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="542" parent="514" name="col">
+    <column id="534" parent="513" name="col">
       <DasType>varchar(500)|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="543" parent="514" name="PRIMARY">
+    <index id="535" parent="513" name="PRIMARY">
       <ColNames>s1</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="544" parent="514" name="PRIMARY">
+    <key id="536" parent="513" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="545" parent="515" name="s2">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="537" parent="514" name="s2">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="546" parent="515" name="col">
+    <column id="538" parent="514" name="col">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
     </column>
-    <index id="547" parent="515" name="PRIMARY">
+    <index id="539" parent="514" name="PRIMARY">
       <ColNames>s2</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="548" parent="515" name="PRIMARY">
+    <key id="540" parent="514" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
