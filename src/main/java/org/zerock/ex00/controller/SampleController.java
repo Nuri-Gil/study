@@ -33,6 +33,21 @@ import java.util.Arrays;
  */
 public class SampleController {
 
+    @GetMapping("/all")
+    public void all() {
+        log.info("All................");
+    }
+
+    @GetMapping("/manager")
+    public void manager() {
+        log.info("Manager................");
+    }
+
+    @GetMapping("/admin")
+    public void admin() {
+        log.info("Admin................");
+    }
+
     @GetMapping("/basic") // GET 방식으로 동작할 때 사용할 용도, sample/basic.jsp 를 찾아감
     public void basic() {
         log.info("basic-----------------");

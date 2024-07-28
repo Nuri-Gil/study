@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집">
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집 새벽">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/all.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/mappers/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/service/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/util/UpDownUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +55,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Interface" />
-        <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="spring-beans.schema" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -148,13 +151,13 @@
     "jdk.selected.JAVA_MODULE": "corretto-11",
     "js.last.introduce.type": "CONST",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/klarnuri/Desktop/part6",
+    "last_opened_file_path": "C:/Users/klarnuri/Desktop/Spring/gugucoding/ex00/src/main/webapp/WEB-INF/views/sample",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
@@ -168,11 +171,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00\src\main\webapp\WEB-INF\views\sample" />
       <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00" />
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\resources\static" />
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\test\java\org\zerock\ex00\mappers" />
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\resources\mappers" />
-      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00" />
@@ -282,8 +285,7 @@
     <configuration name="Tomcat 9.0.89" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8 -Dconsole.encoding=UTF8" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : org.zerock : ex00-1.0-SNAPSHOT.war (exploded)">
           <settings>
@@ -364,7 +366,9 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : org.zerock : ex00-1.0-SNAPSHOT.war (exploded)" />
+        </option>
       </method>
     </configuration>
     <list>
@@ -428,7 +432,8 @@
       <workItem from="1721739355162" duration="14107000" />
       <workItem from="1721924834406" duration="2844000" />
       <workItem from="1722100707540" duration="29000" />
-      <workItem from="1722100752420" duration="10459000" />
+      <workItem from="1722100752420" duration="14693000" />
+      <workItem from="1722187262668" duration="3878000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
@@ -574,7 +579,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722097691153</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="0728 집 새벽">
+      <option name="closed" value="true" />
+      <created>1722115493889</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722115493889</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +634,8 @@
     <MESSAGE value="0719 공부" />
     <MESSAGE value="0723 공부" />
     <MESSAGE value="0728 집" />
-    <option name="LAST_COMMIT_MESSAGE" value="0728 집" />
+    <MESSAGE value="0728 집 새벽" />
+    <option name="LAST_COMMIT_MESSAGE" value="0728 집 새벽" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

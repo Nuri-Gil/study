@@ -727,3 +727,57 @@ modify 처럼 삭제버튼을 누를 때 ano, fullName 데이터를 form 태그 
 서버쪽은 BoardController 에서
 modify 처럼 anos, fullNames 를 파라미터로 받아야 함
 삭제의 경우는 새로 추가되는 파일은 없으므로 MultipartFile 은 필요 없음
+
+------------ Part 6
+-- Spring Security (스프링 시큐리티, 정확히는 Spring Web Security)
+과거에는 Interceptor 사용 -> 요즘에는 Security 사용
+자동 로그인 (Remember Me) 등에 사용할 수 있음
+전통적인 서버 사이드의 로그인 -> HTTP Session / Cookie API 사용
+
+HTTP 프로토콜 -> Stateless (무상태) 가 기본값 -> 전혀 기억이 없는 형태
+사용자들이 서버에 방문하면 서버 입장에서는 사용자가 예전에 왔는지 기억하지 못함
+서버에서는 쿠키를 발행함 -> 이 쿠키는 브라우저가 보관함 (1. 메모리 2. 파일)
+톰캣같은 WAS 에서 자동으로 발행하는 쿠키 -> Session Cookie 세션 쿠키 (유효기간 없음, 메모리 상에 보관)
+세션 쿠키가 발행되면 WAS 안에는 어플리케이션마다 Session Storage 세션 저장소 가 존재하게 됨 (락커룸, 만든 프로그램등이 안에 뜸)
+이 발급 기록이 있으므로 사용자는 매번 이 쿠키를 가지고 옴 -> 개발자가 이 락커룸에 저장하게 됨 -> 서버상에서 보관하므로 안전함
+단점
+메모리 상에 있으므로 브라우저 종료시 소멸됨 -> 서버에서는 무상태이므로 TimeOut 을 가지고 락커룸을 소멸시킴 (기본 30분)
+
+모바일 시대로 넘어오면서 사용자(개발자) 정의 쿠키를 많이 사용
+개발자가 만들어서 브라우저에 보냄, 유효기간을 직접 만들고 파일로 기록됨 -> 나중에 이 파일을 이용해 서버를 호출 (로그인 정보 등)
+쿠키에 모든 정보를 입력 -> 문자열만 기록 가능, 유효기간 존재 -> 문자열 기록 때문에 보안에 취약
+
+스프링 시큐리티는 세션 쿠키를 사용함, Remember Me 는 사용자 쿠키 사용
+스프링 시큐리티는 서버 내부에서 처리하는것, Remember Me (자동 로그인) 은 사용자 쿠키 사용
+스프링 시큐리티가 가진 별도의 공간 (Security Context) 에 스프링이 관리하는 객체 (사용자 정보) 등 보관
+
+-- 시큐리티 적용을 위한 설정
+Spring Web Security 라이브러리 설치
+단계가 복잡함!!!
+1. 라이브러리 추가 -> Spring Framework 버전과 Security 버전은 일치하지 않음! -> 4개의 라이브러리 추가 (Core, Web, Config, JSP 용 Taglibs)
+버전 참조는 community.progress.com 참조
+2. 설정 파일 만들기 -> 일반적으로 XML 설정을 하므로 security-context.xml
+security 의 http, authentication-manager 추가
+3. 생성된 파일을 인식하기 위해 web.xml 설정 변경 -> 리스너 설정, 필터 설정
+리스너에 WEB-INF/spring/security-context.xml 추가, 필터에 springSecurityFilterChan 추가
+4. 추가적으로 설정 파일에서 로그 설정 가능
+시큐리티쪽 로그를 집중적으로 보기 위해 zerock, zaxxer 레벨 DEBUG 와 TRACE 에서 INFO 로 변경 -> 시큐리티만 TRACE
+이 과정을 거치면 예외가 발생함!! (정상) -> 시큐리티 설정을 추가하고 설정을 변경해야 함
+
+위의 4개의 설정을 다 거쳐도 톰캣 실행시 예외가 발생함 (login mechanism 설정을 하라고 함, form-login 같은 것들)
+이럴 때는 security-context 에서 security:form-login 추가해줄 것 -> /login 으로 접속하고 로그인 정보가 뜨면 정상
+
+-- 시큐리티의 적용 확인
+테스트를 위한 URI 설계
+어떤 경로로 가면 로그인이 가능한지 등등 확인해야함 -> 테스트 할 수 있는 경로 필요 (SampleController 에서 테스트)
+각각 getMapping 으로 all, admin, manager 메서드 만들고 샘플 jsp 만들기
+-> 현재는 권한 설정같은 것이 없지만 인증 설정시 하나씩 달라지는것 확인용
+security-context 에서 http 태그 안에 intercept-url 설정 -> 어떤 경로에 들어왔을 때 어떻게 처리할것 이라는 설정
+권한 -> 시스템에서 정의하는 권한 종류를 만들고 access 를 다르게 해서 설정 가능
+all 은 누구나 접근 -> permitAll, manager 는 관리자 -> hasRole (로그인 요구), admin 은 운영자 등등...
+사용자를 만들어서 사용하는 방법은? -> PasswordEncoder 필요
+
+
+
+
+
