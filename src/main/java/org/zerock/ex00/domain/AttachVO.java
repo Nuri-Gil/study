@@ -10,4 +10,12 @@ public class AttachVO {
     private String uuid;
     private String fileName;
 
+    // uuid 와 fileName 을 하나로 합치도록
+    public String getFullName() {
+        if (ano == null) {
+            return null;
+        }
+        return uuid + "_" + fileName;
+    }
+
 }

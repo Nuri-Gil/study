@@ -17,7 +17,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Board Modify</h6>
     </div>
     <div class="card-body">
-        <form id="actionForm" action="/board/modify" method="post">
+        <form id="actionForm" action="/board/modify" method="post" enctype="multipart/form-data">
             <div class="input-group input-group-lg">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Bno</span>
@@ -49,6 +49,14 @@
                 </div>
                 <input type="text" class="form-control" value="<c:out value="${vo.regDate}"/>" readonly>
             </div>
+            <%-- 파일 추가하는 작업 --%>
+            <div class="form-group input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Files</span>
+                </div>
+                <input type="file" name="files" class="form-control" multiple>
+            </div>
+
             <div class="input-group input-group-lg">
                 <%-- 버튼에는 스크립트를 통해 이벤트를 걸어줄 것임 --%>
                 <button type="submit" class="btn btn-info btnList">LIST</button>
@@ -59,7 +67,23 @@
     </div>
 </div>
 
-// modify 는 수정할 때 board/list 로 가는 액션이 있는 곳을 찾아 수정
+<div class="card">
+    <%-- 버튼 밑에 AttachVO 보일 수 있도록 read.jsp 에서 가져오기 --%>
+    <div class="attachList d-flex">
+        <c:if test="${vo.attachVOList != null && vo.attachVOList.size() > 0}">
+            <c:forEach items="${vo.attachVOList}" var="attach">
+                <c:if test="${attach.ano != null}">
+                    <div class="d-flex flex-column m-1">
+                        <img src="/files/s_${attach.fullName}"/>
+                        <button class="btn btn-danger removeImgBtn">X</button>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </c:if>
+    </div>
+</div>
+
+<%-- modify 는 수정할 때 board/list 로 가는 액션이 있는 곳을 찾아 수정 --%>
 <form id="listForm" action="/board/list">
     <input type="hidden" name="pageNum" value="${cri.pageNum}">
     <input type="hidden" name="amount" value="${cri.amount}">
@@ -71,7 +95,7 @@
         </c:forEach>
         <input type="hidden" name="keyword" value="<c:out value="${cri.keyword}"/>">
     </c:if>
-    // 이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지
+    <%-- 이후에 actionForm 태그를 가진 상태로 list 를 클릭하면 actionForm 이 submit 되며 목록으로 가더라도 검색조건 유지 --%>
 </form>
 
 <%@include file="../includes/footer.jsp" %>
@@ -85,7 +109,7 @@
     document.querySelector(".btnList").addEventListener("click", (e) => {
         e.preventDefault()
         e.stopPropagation()
-        
+
         listForm.submit()
     }, false); /*버블링 핸들러 false*/
 
@@ -93,7 +117,7 @@
         e.preventDefault()
         e.stopPropagation()
 
-        actionForm.action =`/board/modify/\${bno}`
+        actionForm.action = `/board/modify/\${bno}`
         actionForm.method = 'post'
         /* 책에서는 modify 후에 검색조건을 유지하려고 했으나 여기선 제목이 수정되었을 때 일반 조회로 가도록 해봄
         * RedirectAttribute.addFlashAttribute 사용해서 */
@@ -104,7 +128,7 @@
         e.preventDefault()
         e.stopPropagation()
 
-        actionForm.action =`/board/remove/\${bno}`
+        actionForm.action = `/board/remove/\${bno}`
         actionForm.method = 'post'
         actionForm.submit()
     }, false); /*버블링 핸들러 false*/

@@ -66,8 +66,34 @@
         insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
     </insert>
 
+<!--
     <select id="select" resultType="BoardVO">
         select * from tbl_board where bno = #{bno}
+    </select>
+-->
+
+    <resultMap id="boardMap" type="BoardVO">
+        <id property="bno" column="bno"/> <!-- Group By 의 역할 -->
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="writer" column="writer"/>
+        <result property="regDate" column="regDate"/>
+        <result property="updateDate" column="updateDate"/>
+        <collection property="attachVOList" resultMap="attachMap"/>
+    </resultMap>
+
+    <resultMap id="attachMap" type="AttachVO">
+        <result property="ano" column="ano"/>
+        <result property="bno" column="bno"/>
+        <result property="uuid" column="uuid"/>
+        <result property="fileName" column="fileName"/>
+    </resultMap>
+
+    <select id="select" resultMap="boardMap">
+        select *
+        from tbl_board b left outer join
+        tbl_attach ta on b.bno = ta.bno
+        where b.bno = #{bno}
     </select>
 
     <update id="update">
