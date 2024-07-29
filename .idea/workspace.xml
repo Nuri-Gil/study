@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집 새벽">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/admin.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/all.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/manager.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0729 학원 pulled">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/security/BCryptTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,9 +52,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="spring-beans.schema" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,7 +90,7 @@
   }
 }</component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="16931b83-0ace-4963-ae27-b8ff19ba8cb4" />
+    <option name="defaultAccountId" value="a48cb8c7-3045-48a7-bbf0-1f9916f1b00d" />
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -124,6 +120,9 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.BCryptTest.executor": "Run",
+    "Gradle.BCryptTest.test1.executor": "Run",
+    "Gradle.BCryptTests.test1.executor": "Run",
     "Gradle.BoardMapperTests.test1.executor": "Run",
     "Gradle.BoardMapperTests.testInsert.executor": "Run",
     "Gradle.BoardMapperTests.testList.executor": "Run",
@@ -146,7 +145,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 9.0.89.executor": "Run",
     "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "HomeStudy",
+    "git-widget-placeholder": "goott",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "corretto-11",
     "js.last.introduce.type": "CONST",
@@ -185,8 +184,8 @@
       <recent name="org.zerock.ex00.mappers" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.89">
-    <configuration name="BoardMapperTests.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.BCryptTests.test1">
+    <configuration name="BCryptTests.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -199,7 +198,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;org.zerock.ex00.mappers.BoardMapperTests.test1&quot;" />
+            <option value="&quot;org.zerock.ex00.security.BCryptTests.test1&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -224,30 +223,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;org.zerock.ex00.sample.DITests.testCon&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="JDBCTests.testConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;org.zerock.ex00.sample.JDBCTests.testConnection&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -372,18 +347,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.BCryptTests.test1" />
       <item itemvalue="Gradle.JDBCTests.testRegExp" />
-      <item itemvalue="Gradle.BoardMapperTests.test1" />
       <item itemvalue="Gradle.DITests.testCon" />
-      <item itemvalue="Gradle.JDBCTests.testConnection" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.89" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BCryptTests.test1" />
         <item itemvalue="Gradle.JDBCTests.testRegExp" />
         <item itemvalue="Gradle.DITests.testCon" />
-        <item itemvalue="Gradle.JDBCTests.testConnection" />
-        <item itemvalue="Gradle.BoardMapperTests.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -635,7 +608,8 @@
     <MESSAGE value="0723 공부" />
     <MESSAGE value="0728 집" />
     <MESSAGE value="0728 집 새벽" />
-    <option name="LAST_COMMIT_MESSAGE" value="0728 집 새벽" />
+    <MESSAGE value="0729 학원 pulled" />
+    <option name="LAST_COMMIT_MESSAGE" value="0729 학원 pulled" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
