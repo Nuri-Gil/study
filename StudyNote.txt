@@ -622,6 +622,9 @@ select 태그에서 resultType 이 아닌 resultMap="boardMap" 으로 선택하�
 
 이미지 데이터를 뿌려주기 위해 read.jsp 에 조회용 div 추가 (클래스, .attachList)
 ResultMap 처리를 했기 때문에 이미지 데이터가 없다면 AttachVO 클래스가 null 을 가진 객체로 무조건 튀어나옴
+<<<<<<< HEAD
+read.jsp 의 .attachList 내부에 ano 값을 체크하는 필터 만들것
+=======
 read.jsp 의 .attachList 내부에 ano 값을 체크하는 필터 만들것
 uuid 와 파일 이름이 한번에 합쳐지면 편하지 않을까?
 .attachList d-flex 에서 나오는 attach, attach.fullName 데이터는 이미지 태그가 되어야 함 -> 추후 이미지 태그로 변경
@@ -776,8 +779,4 @@ security-context 에서 http 태그 안에 intercept-url 설정 -> 어떤 경로
 권한 -> 시스템에서 정의하는 권한 종류를 만들고 access 를 다르게 해서 설정 가능
 all 은 누구나 접근 -> permitAll, manager 는 관리자 -> hasRole (로그인 요구), admin 은 운영자 등등...
 사용자를 만들어서 사용하는 방법은? -> PasswordEncoder 필요
-
-
-
-
 
