@@ -7,6 +7,7 @@
 <body>
 <h1><%= "Hello World!" %></h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="hello-servlet">Hello Servlet</a><p></p>
+<a href="http://localhost:8080/board/list"><b>BOARD LIST</b></a>
 </body>
 </html>

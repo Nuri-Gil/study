@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="010f5a72-e234-42c5-9056-094458a877b5" name="Changes" comment="0726" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집 새벽">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/all.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/manager.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +33,59 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ex00" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ex00" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="spring-beans.schema" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/study" source="main" />
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="self-study" />
+        <entry key="$PROJECT_DIR$/ex00" value="self-study" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -34,10 +93,13 @@
     &quot;assignee&quot;: &quot;Nuri-Gil&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="16931b83-0ace-4963-ae27-b8ff19ba8cb4" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Nuri-Gil/study.git&quot;,
-    &quot;accountId&quot;: &quot;a48cb8c7-3045-48a7-bbf0-1f9916f1b00d&quot;
+    &quot;accountId&quot;: &quot;16931b83-0ace-4963-ae27-b8ff19ba8cb4&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -48,10 +110,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2jfrOIHkWm3AZ5U3INJYfcik3R4" />
+  <component name="ProjectId" id="2izMqQKiF42Chs7g03jwNWMDYS4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -59,33 +120,172 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build ex00.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 9.0.90.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;self-study&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.BoardMapperTests.test1.executor": "Run",
+    "Gradle.BoardMapperTests.testInsert.executor": "Run",
+    "Gradle.BoardMapperTests.testList.executor": "Run",
+    "Gradle.BoardMapperTests.testPage.executor": "Run",
+    "Gradle.BoardMapperTests.testSelect.executor": "Run",
+    "Gradle.BoardMapperTests.testUpdate.executor": "Run",
+    "Gradle.BoardServiceTests.testList.executor": "Run",
+    "Gradle.Build ex00.executor": "Run",
+    "Gradle.DITests.testCon.executor": "Run",
+    "Gradle.JDBCTests.testConnection.executor": "Run",
+    "Gradle.JDBCTests.testRegExp.executor": "Run",
+    "Gradle.ReplyMapperTests.testDelete.executor": "Run",
+    "Gradle.ReplyMapperTests.testGetList.executor": "Run",
+    "Gradle.ReplyMapperTests.testGetTotal.executor": "Run",
+    "Gradle.ReplyMapperTests.testInsert.executor": "Run",
+    "Gradle.ReplyMapperTests.testSelect.executor": "Run",
+    "Gradle.ReplyMapperTests.testUpdate.executor": "Run",
+    "Gradle.TimeTests.test1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.89.executor": "Run",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "HomeStudy",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "js.last.introduce.type": "CONST",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/klarnuri/Desktop/Spring/gugucoding/ex00/src/main/webapp/WEB-INF/views/sample",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="Tomcat 9.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00\src\main\webapp\WEB-INF\views\sample" />
+      <recent name="C:\Users\klarnuri\Desktop\Spring\gugucoding\ex00" />
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\resources\static" />
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\test\java\org\zerock\ex00\mappers" />
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\resources\mappers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00" />
+      <recent name="C:\Users\goott\Desktop\Spring\gugucoding\ex00\src\main\webapp\WEB-INF\views\sample" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.zerock.ex00.mappers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.89">
+    <configuration name="BoardMapperTests.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.mappers.BoardMapperTests.test1&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DITests.testCon" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.sample.DITests.testCon&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="JDBCTests.testConnection" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.sample.JDBCTests.testConnection&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="JDBCTests.testRegExp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.sample.JDBCTests.testRegExp&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat 9.0.89" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8 -Dconsole.encoding=UTF8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Gradle : org.zerock : ex00-1.0-SNAPSHOT.war (exploded)">
           <settings>
@@ -94,7 +294,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="b764ff82-0d3a-43cf-bc71-7a4abfb918a5" />
+        <option name="BASE_DIRECTORY_NAME" value="8e6ca6de-3f97-4e87-84f3-3e09887ac274" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -102,7 +302,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60216" />
+        <option name="DEBUG_PORT" value="63633" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -171,43 +371,274 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.JDBCTests.testRegExp" />
+      <item itemvalue="Gradle.BoardMapperTests.test1" />
+      <item itemvalue="Gradle.DITests.testCon" />
+      <item itemvalue="Gradle.JDBCTests.testConnection" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.89" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.JDBCTests.testRegExp" />
+        <item itemvalue="Gradle.DITests.testCon" />
+        <item itemvalue="Gradle.JDBCTests.testConnection" />
+        <item itemvalue="Gradle.BoardMapperTests.test1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="010f5a72-e234-42c5-9056-094458a877b5" name="Changes" comment="" />
-      <created>1721788940248</created>
+      <changelist id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="" />
+      <created>1720489143180</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1721788940248</updated>
-      <workItem from="1721788941819" duration="7115000" />
-      <workItem from="1721959161579" duration="8834000" />
+      <updated>1720489143180</updated>
+      <workItem from="1720489144187" duration="16397000" />
+      <workItem from="1720510939821" duration="27000" />
+      <workItem from="1720510971401" duration="18000" />
+      <workItem from="1720511000066" duration="136000" />
+      <workItem from="1720511144844" duration="96000" />
+      <workItem from="1720511248331" duration="5468000" />
+      <workItem from="1720573477495" duration="25904000" />
+      <workItem from="1720603710282" duration="11000" />
+      <workItem from="1720659119051" duration="21887000" />
+      <workItem from="1720701745079" duration="6051000" />
+      <workItem from="1720716075891" duration="1613000" />
+      <workItem from="1720766658360" duration="1617000" />
+      <workItem from="1720768450008" duration="2020000" />
+      <workItem from="1720770522326" duration="1235000" />
+      <workItem from="1720771782143" duration="3882000" />
+      <workItem from="1720977247077" duration="5738000" />
+      <workItem from="1721004462262" duration="22251000" />
+      <workItem from="1721107799458" duration="12218000" />
+      <workItem from="1721202299683" duration="612000" />
+      <workItem from="1721207786937" duration="26000" />
+      <workItem from="1721611084961" duration="734000" />
+      <workItem from="1721613563876" duration="6000" />
+      <workItem from="1721613729493" duration="16673000" />
+      <workItem from="1721639644571" duration="17000" />
+      <workItem from="1721639740642" duration="244000" />
+      <workItem from="1721712869806" duration="13017000" />
+      <workItem from="1721739355162" duration="14107000" />
+      <workItem from="1721924834406" duration="2844000" />
+      <workItem from="1722100707540" duration="29000" />
+      <workItem from="1722100752420" duration="14693000" />
+      <workItem from="1722187262668" duration="3878000" />
     </task>
-    <task id="LOCAL-00001" summary="0726">
+    <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />
-      <created>1721961542611</created>
+      <created>1720516575928</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1721961542611</updated>
+      <updated>1720516575928</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="07.09 Study">
+      <option name="closed" value="true" />
+      <created>1720516589061</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720516589061</updated>
+    </task>
+    <task id="LOCAL-00003" summary="07.09 Study">
+      <option name="closed" value="true" />
+      <created>1720575259080</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720575259080</updated>
+    </task>
+    <task id="LOCAL-00004" summary="07.10 Study">
+      <option name="closed" value="true" />
+      <created>1720661644793</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720661644793</updated>
+    </task>
+    <task id="LOCAL-00005" summary="07.11 Study">
+      <option name="closed" value="true" />
+      <created>1720702181165</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720702181165</updated>
+    </task>
+    <task id="LOCAL-00006" summary="07.11 Study">
+      <option name="closed" value="true" />
+      <created>1720717583251</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720717583252</updated>
+    </task>
+    <task id="LOCAL-00007" summary="07.11 Study">
+      <option name="closed" value="true" />
+      <created>1720717659039</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720717659039</updated>
+    </task>
+    <task id="LOCAL-00008" summary="07.10 Study">
+      <option name="closed" value="true" />
+      <created>1720766382212</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720766382212</updated>
+    </task>
+    <task id="LOCAL-00009" summary="0712 깃허브">
+      <option name="closed" value="true" />
+      <created>1720767337342</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720767337342</updated>
+    </task>
+    <task id="LOCAL-00010" summary="0715 공부">
+      <option name="closed" value="true" />
+      <created>1720982527970</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1720982527970</updated>
+    </task>
+    <task id="LOCAL-00011" summary="0716">
+      <option name="closed" value="true" />
+      <created>1721109573962</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721109573962</updated>
+    </task>
+    <task id="LOCAL-00012" summary="0716">
+      <option name="closed" value="true" />
+      <created>1721109589739</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1721109589739</updated>
+    </task>
+    <task id="LOCAL-00013" summary="0716">
+      <option name="closed" value="true" />
+      <created>1721109616221</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1721109616221</updated>
+    </task>
+    <task id="LOCAL-00014" summary="0722">
+      <option name="closed" value="true" />
+      <created>1721639818641</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721639818641</updated>
+    </task>
+    <task id="LOCAL-00015" summary="0722">
+      <option name="closed" value="true" />
+      <created>1721639959950</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721639959950</updated>
+    </task>
+    <task id="LOCAL-00016" summary="0719 공부">
+      <option name="closed" value="true" />
+      <created>1721714695605</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1721714695605</updated>
+    </task>
+    <task id="LOCAL-00017" summary="0723 공부">
+      <option name="closed" value="true" />
+      <created>1721744868137</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721744868137</updated>
+    </task>
+    <task id="LOCAL-00018" summary="0728 집">
+      <option name="closed" value="true" />
+      <created>1722097691153</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722097691153</updated>
+    </task>
+    <task id="LOCAL-00019" summary="0728 집 새벽">
+      <option name="closed" value="true" />
+      <created>1722115493889</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722115493889</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="0724" />
-    <MESSAGE value="0726" />
-    <option name="LAST_COMMIT_MESSAGE" value="0726" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/ex00" />
+      <path value="$PROJECT_DIR$/study" />
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="07.09 Study" />
+    <MESSAGE value="07.11 Study" />
+    <MESSAGE value="07.10 Study" />
+    <MESSAGE value="0712 깃허브" />
+    <MESSAGE value="0715 공부" />
+    <MESSAGE value="0716" />
+    <MESSAGE value="0722" />
+    <MESSAGE value="0718 공부" />
+    <MESSAGE value="0719 공부" />
+    <MESSAGE value="0723 공부" />
+    <MESSAGE value="0728 집" />
+    <MESSAGE value="0728 집 새벽" />
+    <option name="LAST_COMMIT_MESSAGE" value="0728 집 새벽" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -91,7 +91,7 @@ SELECT *
 FROM tbl_reply;
 
 INSERT INTO tbl_reply (bno, replyText, replyer)
-        (SELECT bno, replyText, replyText FROM tbl_reply);
+    (SELECT bno, replyText, replyText FROM tbl_reply);
 
 create table tbl_sample1
 (
@@ -129,8 +129,5 @@ order by bno desc;
 
 select *
 from tbl_board b left outer join
-    tbl_attach ta on b.bno = ta.bno
+     tbl_attach ta on b.bno = ta.bno
 where b.bno = 1027; -- 마지막 여러개 파일 올린 글 bno
-
-
-
