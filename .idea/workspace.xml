@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0728 집 새벽">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/admin.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/all.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/manager.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="02564afa-8a44-4b16-ba5a-7ef3fe613386" name="Changes" comment="0729 집">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/zerock/ex00/security/BCryptTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StudyNote.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StudyNote.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/zerock/ex00/controller/SampleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/security-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +50,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="spring-beans.schema" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,6 +79,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -124,6 +119,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.BCryptTests.test1.executor": "Run",
     "Gradle.BoardMapperTests.test1.executor": "Run",
     "Gradle.BoardMapperTests.testInsert.executor": "Run",
     "Gradle.BoardMapperTests.testList.executor": "Run",
@@ -186,6 +182,30 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.89">
+    <configuration name="BCryptTests.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.zerock.ex00.security.BCryptTests.test1&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="BoardMapperTests.test1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -372,6 +392,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.BCryptTests.test1" />
       <item itemvalue="Gradle.JDBCTests.testRegExp" />
       <item itemvalue="Gradle.BoardMapperTests.test1" />
       <item itemvalue="Gradle.DITests.testCon" />
@@ -380,6 +401,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BCryptTests.test1" />
         <item itemvalue="Gradle.JDBCTests.testRegExp" />
         <item itemvalue="Gradle.DITests.testCon" />
         <item itemvalue="Gradle.JDBCTests.testConnection" />
@@ -434,6 +456,7 @@
       <workItem from="1722100707540" duration="29000" />
       <workItem from="1722100752420" duration="14693000" />
       <workItem from="1722187262668" duration="3878000" />
+      <workItem from="1722271527428" duration="2338000" />
     </task>
     <task id="LOCAL-00001" summary="07.09 Study">
       <option name="closed" value="true" />

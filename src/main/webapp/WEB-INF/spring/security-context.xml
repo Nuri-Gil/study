@@ -4,13 +4,27 @@
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security https://www.springframework.org/schema/security/spring-security.xsd">
 
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!-- 어떤 경로에 들어왔을 때 어떻게 처리할것 이라는 설정 -->
     <security:http>
         <security:form-login/>
         <security:intercept-url pattern="/sample/all" access="permitAll()"/>
-        <security:intercept-url pattern="/sample/manager" access="hasRole('ROLE_MANAGER')"/>
+        <security:intercept-url pattern="/sample/manager" access="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/sample/admin" access="hasRole({'ROLE_ADMIN'})"/>
     </security:http>
 
+    <!-- 사용자 설정 (나중에는 당연히 DB 사용, 지금은 확인용) -->
     <security:authentication-manager>
-
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="user1"
+                               authorities="ROLE_MANAGER"
+                               password="$2a$10$5zuPgF.3K7SWftzf0VQw2eSQiYVaBDKTwz1AUeKleiFM21FvhbFXS"/>
+                <security:user name="admin1"
+                               authorities="ROLE_ADMIN"
+                               password="$2a$10$7wKZLxMHAMnN93SxyOPMb..raolwBhO7Co5OBscbzrFHEsqedEM1."/>
+            </security:user-service>
+        </security:authentication-provider>
     </security:authentication-manager>
 </beans>
